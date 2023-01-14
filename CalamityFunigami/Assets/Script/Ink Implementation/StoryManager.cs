@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class ScriptManager : MonoBehaviour
 {
+	#region Public Variables
+	public static ScriptManager Instance { get; private set; }
+	#endregion
+
 	#region Private Variables
 	private TextAsset script;
 	private Story inkStory;
@@ -12,6 +16,13 @@ public class ScriptManager : MonoBehaviour
 
 	private void Awake()
 	{
+		if(Instance != null && Instance != this)
+		{
+			Destroy(this);
+		}
+
+		Instance = this;
+
 		commandsManager = GetComponent<ScriptCommandsManager>();
 		dialogManager = GetComponent<ScriptDialogManager>();
 	}
@@ -22,6 +33,15 @@ public class ScriptManager : MonoBehaviour
 	public void LoadInkStory()
 	{
 		inkStory = new Story(script.text);
+	}
+
+	/// <summary>
+	///		Jumps to a selected knot in the script
+	/// </summary>
+	/// <param name="knotName">The knot's name</param>
+	public void JumpToKnot(string knotName)
+	{
+		inkStory.ChoosePathString(knotName);
 	}
 
 	/// <summary>

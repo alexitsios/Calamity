@@ -45,12 +45,12 @@ public class ConsoleController : MonoBehaviour
     }
 
     //This can be used for testing until the inputs have been added to the input system
-    /*private void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.BackQuote)) OnToggleConsole();
 
         if (Input.GetKeyDown(KeyCode.Return)) OnReturn();
-    }*/
+    }
 
     //This method should be called from wherever input is being handled
     public static void OnToggleConsole()

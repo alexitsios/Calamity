@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -20,7 +21,10 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Start()
 	{
-		characterController = GetComponent<CharacterController>();
+		if(!TryGetComponent(out characterController))
+		{
+			throw new Exception($"The PlayerMovement script requires a CharacterController attached to the same object. Please attach one to [{gameObject.name}] before running the scene");
+		}
 	}
 
 	private void Update()

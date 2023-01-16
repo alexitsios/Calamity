@@ -11,7 +11,11 @@ public class PlayerInventory : MonoBehaviour
 
     public List<InventoryElement> inventoryElements = new List<InventoryElement>();
 
+    private int previousX; //hold the previous grid location of items being dragged
+    private int previousY;
+
     [SerializeField] private Item[] testItems;
+    [SerializeField] private int testItemCountToAdd; //add the stackable ammo in larger quantities. For testing adding stacks
 
     //For testing only
     private void Update()
@@ -28,37 +32,68 @@ public class PlayerInventory : MonoBehaviour
         {
             AddItem(testItems[2]);
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            AddItem(testItems[0], testItemCountToAdd);
+        }
     }
 
-    public bool AddItem(Item newItem, int count = 1)
+    //Add new items to the player's inventory
+    //The return int is for the event that the player attempts to move more items to their inventory than they can carry
+    //Use it to determine the number of remaining items in the container after the player takes them
+    public int AddItem(Item newItem, int count = 1)
     {
-        if (!newItem.CanStack || !Contains(newItem))
+        //Run through existing elements while they're below capacity
+        var openElements = FindOpenElements(newItem);
+        for (int i = 0; i < openElements.Count; i++)
         {
-            var node = display.FindOpenNode(newItem.Width, newItem.Height, newItem.CanRotate);
-            if (node != null)
+            //Max out the amount to add at the element's max stack count or the remaining count
+            int amountToAdd = openElements[i].item.MaxStackCount - openElements[i].count;
+            amountToAdd = Mathf.Clamp(amountToAdd, 0, count);
+
+            openElements[i].SetItemCount(openElements[i].count + amountToAdd);
+            count -= amountToAdd;
+
+            if (count <= 0)
             {
-                AddElement(newItem, count, node);
-                return true;
-            }
-            else
-            {
-                return false;
+                return 0;
             }
         }
-        else
+
+        //remaining count is still greater than zero, need to create new elements
+        if (count > 0)
         {
-            //Currently this does not account for max stack size
-            FindSlot(newItem).count += count;
-            onInventoryChange?.Invoke();
-            return true;
+            //Attempt to create a number of elements necessary for the current count
+            float newCount = count; //Converting this to a float because ints don't like to be divided
+            int amountToCreate = Mathf.CeilToInt(newCount / newItem.MaxStackCount);
+
+            for (int i = 0; i < amountToCreate; i++)
+            {
+                var node = display.FindOpenNode(newItem.Width, newItem.Height, newItem.CanRotate);
+                if (node != null)
+                {
+                    int maxCount = Mathf.Clamp(count, 0, newItem.MaxStackCount);
+                    AddElement(newItem, maxCount, node);
+                    count -= maxCount;
+
+                    if (count <= 0)
+                    {
+                        return 0;
+                    }
+                }
+            }
         }
+
+        Debug.Log(count + " remaining");
+        return count;
     }
 
     private void AddElement(Item item, int count, GridNode node)
     {
         var go = Instantiate(item.UIElementPrefab, display.GetGridPosition(node.x, node.y), Quaternion.identity);
         go.transform.SetParent(display.Origin);
-        
+
         var element = go.GetComponent<InventoryElement>();
         element.SetProperties(item, node.x, node.y, count);
 
@@ -75,28 +110,57 @@ public class PlayerInventory : MonoBehaviour
     {
         Debug.Assert(Contains(oldItem));
 
-        var slot = FindSlot(oldItem);
-        if (count >= slot.count)
+        var element = FindElement(oldItem);
+
+        //Removing some items from the stack
+        if (element.count > count)
         {
-            Destroy(slot.gameObject);
-            inventoryElements.Remove(slot);
+            element.SetItemCount(element.count - count);
         }
+        //Removing the stack
+        else if (element.count == count)
+        {
+            RemoveElement(element);
+        }
+        //Removing multiple stacks
         else
         {
-            slot.count -= count;
-        }   
+            RemoveItemsRecursively(oldItem, count);
+        }
 
         onInventoryChange?.Invoke();
     }
 
-    private void RemoveElement()
+    private void RemoveItemsRecursively(Item oldItem, int count)
     {
+        var elementList = FindElements(oldItem);
 
+        for (int i = 0; i < elementList.Count; i++)
+        {
+            int amountToRemove = elementList[i].count;
+            amountToRemove = Mathf.Clamp(amountToRemove, 0, count);
+
+            elementList[i].SetItemCount(elementList[i].count - amountToRemove);
+            count -= amountToRemove;
+
+            if (count <= 0)
+            {
+                break;
+            }
+        }
+    }
+
+    private void RemoveElement(InventoryElement element)
+    {
+        element.onElementBeginDrag -= OnElementBeginDrag;
+        element.onElementEndDrag -= OnElementEndDrag;
+        inventoryElements.Remove(element);
+        Destroy(element.gameObject);
     }
 
     public bool Contains(Item item)
     {
-        if (FindSlot(item) != null)
+        if (FindElement(item) != null)
         {
             return true;
         }
@@ -104,11 +168,11 @@ public class PlayerInventory : MonoBehaviour
         return false;
     }
 
-    public InventoryElement FindSlot(Item item)
+    public InventoryElement FindElement(Item item)
     {
         for (int i = 0; i < inventoryElements.Count; i++)
         {
-            if (inventoryElements[i].item = item)
+            if (inventoryElements[i].item == item)
             {
                 return inventoryElements[i];
             }
@@ -117,9 +181,37 @@ public class PlayerInventory : MonoBehaviour
         return null;
     }
 
-    private int previousX;
-    private int previousY;
+    private List<InventoryElement> FindElements(Item item)
+    {
+        var tempList = new List<InventoryElement>();
 
+        for (int i = 0; i < inventoryElements.Count; i++)
+        {
+            if (inventoryElements[i].item == item)
+            {
+                tempList.Add(inventoryElements[i]);
+            }
+        }
+
+        return tempList;
+    }
+
+    private List<InventoryElement> FindOpenElements(Item item)
+    {
+        var tempList = new List<InventoryElement>();
+
+        for (int i = 0; i < inventoryElements.Count; i++)
+        {
+            if (inventoryElements[i].item == item && inventoryElements[i].count < inventoryElements[i].item.MaxStackCount)
+            {
+                tempList.Add(inventoryElements[i]);
+            }
+        }
+
+        return tempList;
+    }
+
+    #region - Element Dragging -
     private void OnElementBeginDrag(InventoryElement element)
     {
         var node = display.GetNode(element.gridX, element.gridY);
@@ -135,7 +227,14 @@ public class PlayerInventory : MonoBehaviour
         int y = Mathf.RoundToInt(element.Rect.localPosition.y * 0.01f);
         var newNode = display.GetNode(x, y);
 
-        if (newNode != null && display.OnValidateNewPosition(newNode, element.item.Width, element.item.Height))
+        //This should only happen if the player drags the item off the inventory UI
+        if (newNode == null)
+        {
+            Debug.Log("Removing from inventory");
+            RemoveElement(element);
+            return;
+        }
+        else if (display.OnValidateNewPosition(newNode, element.item.Width, element.item.Height))
         {
             //Set new position
             display.ToggleNodesOccupied(newNode, element.item.Width, element.item.Height, true);
@@ -157,4 +256,5 @@ public class PlayerInventory : MonoBehaviour
         element.gridX = oldNode.x;
         element.gridY = oldNode.y;
     }
+    #endregion
 }

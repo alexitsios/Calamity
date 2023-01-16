@@ -17,5 +17,6 @@ MonoBehaviour:
   m_UIElementPrefab: {fileID: 7044204372705560237, guid: d814118f519de4d4b9a44c22a304e9f1, type: 3}
   m_width: 1
   m_height: 1
-  m_canStack: 0
+  m_canStack: 1
+  m_maxStackCount: 50
   m_canRotate: 0

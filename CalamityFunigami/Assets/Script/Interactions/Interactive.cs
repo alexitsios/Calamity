@@ -9,12 +9,12 @@ public class Interactive : MonoBehaviour
 	#endregion
 
 	#region Private Variables
-	private ScriptManager scriptManager;
+	private StoryManager scriptManager;
 	#endregion
 
 	private void Start()
 	{
-		scriptManager = ScriptManager.Instance;
+		scriptManager = StoryManager.Instance;
 	}
 
 	/// <summary>

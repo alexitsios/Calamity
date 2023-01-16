@@ -12,6 +12,7 @@ public class Item : ScriptableObject
     [SerializeField] private int m_width = 1;
     [SerializeField] private int m_height = 1;
     [Space]
+    [SerializeField] private bool m_canStack;
     [SerializeField] private int m_maxStackCount = 1;
     [SerializeField] private bool m_canRotate;
 
@@ -22,6 +23,7 @@ public class Item : ScriptableObject
     public int Height => m_height;
     public int Width => m_width;
 
+    public bool CanStack => m_canStack;
     public int MaxStackCount => m_maxStackCount;
     public bool CanRotate => m_canRotate;
 }

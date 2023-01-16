@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66fd3e4b1a64cb847bc18faa7f4800bc, type: 3}
+  m_Name: Ammo
+  m_EditorClassIdentifier: 
+  name: Ammo
+  m_description: Test Ammo
+  m_UIElementPrefab: {fileID: 7044204372705560237, guid: d814118f519de4d4b9a44c22a304e9f1, type: 3}
+  m_width: 1
+  m_height: 1
+  m_canStack: 0
+  m_canRotate: 0

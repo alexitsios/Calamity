@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class InventoryElement : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
@@ -9,15 +10,22 @@ public class InventoryElement : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     public OnElementDragCallback onElementBeginDrag;
     public OnElementDragCallback onElementEndDrag;
 
-    [SerializeField] private RectTransform m_rect;
+    private RectTransform m_rect;
+    private TMP_Text m_itemCount;
     public RectTransform Rect => m_rect;
 
-    public Item item;
-    public int count;
+    public Item item { get; private set; }
+    public int count { get; private set; }
 
     public int gridX;
     public int gridY;
     public float zRotation;
+
+    private void Awake()
+    {
+        m_rect = GetComponent<RectTransform>();
+        m_itemCount = GetComponentInChildren<TMP_Text>();
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -58,5 +66,20 @@ public class InventoryElement : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         gridY = y;
 
         this.count = count;
+        SetItemCount(this.count);
+    }
+
+    public void SetItemCount(int count)
+    {
+        this.count = count;
+
+        if (count <= 1)
+        {
+            m_itemCount.text = "";
+        }
+        else
+        {
+            m_itemCount.text = count.ToString();
+        }
     }
 }

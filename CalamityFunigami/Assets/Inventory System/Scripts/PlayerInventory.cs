@@ -98,10 +98,27 @@ public class PlayerInventory : MonoBehaviour
         element.SetProperties(item, node.x, node.y, count);
 
         inventoryElements.Add(element);
+        element.onItemUsed += OnItemUsed;
         element.onElementBeginDrag += OnElementBeginDrag;
         element.onElementEndDrag += OnElementEndDrag;
 
         display.ToggleNodesOccupied(node, item.Width, item.Height, true);
+
+        onInventoryChange?.Invoke();
+    }
+
+    private void RemoveItem(InventoryElement element, int count = 1)
+    {
+        //Removing some items from the stack
+        if (element.count > count)
+        {
+            element.SetItemCount(element.count - count);
+        }
+        //Remove the stack
+        else
+        {
+            RemoveElement(element);
+        }
 
         onInventoryChange?.Invoke();
     }
@@ -152,6 +169,7 @@ public class PlayerInventory : MonoBehaviour
 
     private void RemoveElement(InventoryElement element)
     {
+        element.onItemUsed -= OnItemUsed;
         element.onElementBeginDrag -= OnElementBeginDrag;
         element.onElementEndDrag -= OnElementEndDrag;
         inventoryElements.Remove(element);
@@ -257,4 +275,21 @@ public class PlayerInventory : MonoBehaviour
         element.gridY = oldNode.y;
     }
     #endregion
+
+    private void OnItemUsed(InventoryElement element)
+    {
+        element.item.UseItem();
+
+        //Decrease one from the stack
+        if (element.item is Consumable)
+        {
+            RemoveItem(element);
+        }
+        else if (element.item is Equipment)
+        {
+            //Likely have a separate script for managing equipment
+            //Need to instantiate, remove previous weapon
+            //I imagine an equipped item is removed from the inventory, so that needs to happen
+        }
+    }
 }

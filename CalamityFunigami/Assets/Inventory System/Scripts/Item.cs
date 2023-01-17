@@ -24,4 +24,9 @@ public class Item : ScriptableObject
 
     public int MaxStackCount => m_maxStackCount;
     public bool CanRotate => m_canRotate;
+
+    public virtual void UseItem()
+    {
+        Debug.Log("Using " + name);
+    }
 }

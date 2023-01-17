@@ -1,4 +1,4 @@
-public class ConsoleCommandBase
+public abstract class ConsoleCommandBase
 {
     //the string that must be typed into the console to call the command
     private string m_commandID;
@@ -17,4 +17,6 @@ public class ConsoleCommandBase
         m_commandDescription = description;
         m_commandFormat = format;
     }
+
+    public abstract void Invoke(string[] args);
 }

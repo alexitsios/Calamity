@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerInteraction : MonoBehaviour
@@ -20,10 +19,7 @@ public class PlayerInteraction : MonoBehaviour
 	{
 		var forward = transform.TransformDirection(Vector3.forward);
 
-		if(Debug.isDebugBuild)
-		{
-			Debug.DrawRay(transform.position, forward, Color.red, 5);
-		}
+		DebugController.Instance.DrawRaycast(transform.position, forward, Color.red, 5);
 
 		if(Physics.Raycast(transform.position, forward, out var objectHit, 1))
 		{

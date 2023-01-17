@@ -1,16 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
 public class InventoryElement : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
+    public delegate void OnItemUsedCallback(InventoryElement element);
+    public OnItemUsedCallback onItemUsed;
+
     public delegate void OnElementDragCallback(InventoryElement element);
     public OnElementDragCallback onElementBeginDrag;
     public OnElementDragCallback onElementEndDrag;
 
+    [Tooltip("This go is enabled/disabled when the object is dragged to show the outline of its dimensions")]
+    [SerializeField] private GameObject onDragHighlightPanel;
     private RectTransform m_rect;
+    private Button button;
     private TMP_Text m_itemCount;
     public RectTransform Rect => m_rect;
 
@@ -25,6 +32,17 @@ public class InventoryElement : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     {
         m_rect = GetComponent<RectTransform>();
         m_itemCount = GetComponentInChildren<TMP_Text>();
+        button = GetComponentInChildren<Button>();
+
+        onDragHighlightPanel.SetActive(false);
+    }
+
+    private void Start()
+    {
+        button.onClick.AddListener(delegate 
+        {
+            onItemUsed?.Invoke(this);
+        });
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -33,6 +51,7 @@ public class InventoryElement : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         if (eventData.button != PointerEventData.InputButton.Left) return;
 
         SetDraggedPosition(eventData);
+        onDragHighlightPanel.SetActive(true);
         onElementBeginDrag?.Invoke(this);
     }
 
@@ -47,6 +66,7 @@ public class InventoryElement : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     {
         //Only register end drag with LMB
         if (eventData.button != PointerEventData.InputButton.Left) return;
+        onDragHighlightPanel.SetActive(false);
         onElementEndDrag?.Invoke(this);
     }
 

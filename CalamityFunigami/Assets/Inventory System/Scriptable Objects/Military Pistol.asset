@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cb3f39c04382c344a08bee1d6fc5569, type: 3}
+  m_Name: Military Pistol
+  m_EditorClassIdentifier: 
+  name: Military Pistol
+  m_description: pew pew
+  m_UIElementPrefab: {fileID: 2866688608256843813, guid: c1929d124eea26841b6a9364e32cfac1, type: 3}
+  m_width: 2
+  m_height: 2
+  m_maxStackCount: 1
+  m_canRotate: 0
+  m_baseMagazineCount: 12
+  m_baseDamage: 34
+  m_baseCriticalDamage: 100

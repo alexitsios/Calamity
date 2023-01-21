@@ -11,7 +11,7 @@ public class PlayerInteraction : MonoBehaviour
 	{
 		input = new PlayerInputActions();
 		input.Player.Enable();
-		input.Player.Interact.performed += InteractWith;
+		input.Player.Action.performed += InteractWith;
 	}
 
 	// Update is called once per frame

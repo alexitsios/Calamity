@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.002796919, g: 0.004485734, b: 0.016306998, a: 1}
+  m_IndirectSpecularColor: {r: 0.0027969126, g: 0.004485725, b: 0.016306963, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -233,7 +233,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &315354911
 GameObject:
@@ -295,7 +295,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &530895442
 GameObject:
@@ -349,7 +349,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 4c808e5e4c071bb4eb465aca73807249, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -392,7 +392,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &534549704
 GameObject:
@@ -619,6 +619,7 @@ GameObject:
   - component: {fileID: 732805097}
   - component: {fileID: 732805098}
   - component: {fileID: 732805099}
+  - component: {fileID: 732805100}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -822,11 +823,47 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: dd9d3de5-64f5-4ba6-be15-173daf76171e
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0aff09da-4808-488f-9020-07e1db74003f
+    m_ActionName: Player/Run[/Keyboard/shift,/DualShock4GamepadHID/buttonWest]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 338b087e-daee-4ffb-a145-30e56d83d4b6
+    m_ActionName: Player/Pause[/Keyboard/escape,/DualShock4GamepadHID/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f40a1767-c19b-4178-9b56-c1da06a7e59c
+    m_ActionName: Player/Aim[/Keyboard/x,/DualShock4GamepadHID/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: aae19ad6-3d6e-4549-a5f1-e2d78d29f65e
+    m_ActionName: Player/Change Target[/Keyboard/f,/DualShock4GamepadHID/leftShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 65a8edd6-009c-41e3-9d14-65cb1612b17a
+    m_ActionName: Player/Inventory[/Keyboard/z,/DualShock4GamepadHID/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4852328f-5bf3-47f0-bc40-0ad6ffddef97
+    m_ActionName: Player/Map[/Keyboard/m,/DualShock4GamepadHID/buttonNorth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &732805100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732805091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc92ed59afa767d47ba12e42055055a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1196975886
 GameObject:
   m_ObjectHideFlags: 0

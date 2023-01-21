@@ -21,6 +21,7 @@ public class Interactive : MonoBehaviour
 	///		Basic implementation of the Interact method, called whenever an object is interacted with
 	///		To change the functionality, create a new class inherited from Interactive and override this method
 	/// </summary>
+	[System.Obsolete]
 	public virtual void Interact()
 	{
 		scriptManager.JumpToKnot(inkKnotName);

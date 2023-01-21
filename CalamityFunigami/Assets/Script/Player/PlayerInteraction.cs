@@ -7,6 +7,7 @@ public class PlayerInteraction : MonoBehaviour
 	private PlayerInputActions input;
 	#endregion
 
+	[System.Obsolete]
 	private void Start()
 	{
 		input = new PlayerInputActions();
@@ -15,6 +16,7 @@ public class PlayerInteraction : MonoBehaviour
 	}
 
 	// Update is called once per frame
+	[System.Obsolete]
 	private void InteractWith(CallbackContext obj)
 	{
 		var forward = transform.TransformDirection(Vector3.forward);

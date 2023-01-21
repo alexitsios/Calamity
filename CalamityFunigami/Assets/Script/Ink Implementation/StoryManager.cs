@@ -44,6 +44,7 @@ public class StoryManager : MonoBehaviour
 	/// <summary>
 	///		Loads the script and creates a Story to control the dialog flow
 	/// </summary>
+	[Obsolete]
 	public void LoadInkStory()
 	{
 		inkStory = new Story(script.text);
@@ -53,6 +54,7 @@ public class StoryManager : MonoBehaviour
 	///		Jumps to a selected knot in the script
 	/// </summary>
 	/// <param name="knotName">The knot's name</param>
+	[Obsolete]
 	public void JumpToKnot(string knotName)
 	{
 		// TODO: improve this. The story should load only once, when the scene loads

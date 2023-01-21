@@ -37,7 +37,6 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
-*Build*/
+# *Build*/
 *.zip
 bin/
-UserSettings/

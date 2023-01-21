@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
-using static UnityEngine.InputSystem.InputAction;
 
+[RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
 	#region Editor Variables
@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
 	private float movement;
 	private float turn;
 	#endregion
+
+	public Animator Animator { get; set; }
 
 	private void Start()
 	{
@@ -45,7 +47,13 @@ public class PlayerMovement : MonoBehaviour
 			var moveRate = movement * walkSpeed * transform.forward;
 
 			characterController.Move(Time.fixedDeltaTime * moveRate);
+
+			SetAnimatorMoving(true);
 		}
+		else
+		{
+            SetAnimatorMoving(false);
+        }
 
 		if(turn != 0f)
 		{
@@ -53,5 +61,12 @@ public class PlayerMovement : MonoBehaviour
 
 			transform.Rotate(Time.fixedDeltaTime * turnRate);
 		}
+	}
+
+	private void SetAnimatorMoving(bool moving)
+	{
+		if (Animator == null)
+			Debug.LogError("Your player is missing an animator or an animator subscription script");
+		Animator.SetBool("Moving", moving);
 	}
 }

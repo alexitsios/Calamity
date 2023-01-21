@@ -7,7 +7,7 @@ public class ConsoleController : MonoBehaviour
 	public static ConsoleController Instance { get; private set; }
 
 	private bool showConsole = false;
-	private bool showHelp = false;
+	//private bool showHelp = false;
 	private string inputCommand;
 	private Vector2 scroll;
 	private List<string> history = new();

@@ -11,6 +11,7 @@ public class PlayerStates : MonoBehaviour
 
 	#region Private Variables
 	private PlayerState playerState;
+	private List<PlayerState> pendingStates;
 	private List<Subscriber> subscribers;
 	#endregion
 
@@ -32,15 +33,43 @@ public class PlayerStates : MonoBehaviour
 	}
 
 	/// <summary>
-	///		Sets the current player state to a new one, and notifies all subscribers of that state
+	///		Adds a new state to the list of pending states. If that state has a higher priority, the current state will be changed and all subscribers will be notified
 	/// </summary>
 	/// <param name="state">The new state</param>
-	public void SetCurrentPlayerState(PlayerState state)
+	public void TrySetCurrentPlayerState(PlayerState state)
 	{
-		playerState = state;
+		pendingStates.Add(state);
 
-		subscribers.Where(s => s.State == state).ToList().ForEach(s => s.Method.Invoke());
+		var maxPendingState = pendingStates.Max(p => p);
+
+		if(maxPendingState > playerState)
+		{
+			playerState = maxPendingState;
+			subscribers.Where(s => s.State == playerState).ToList().ForEach(s => s.Method.Invoke());
+		}
 	}
+
+	/// <summary>
+	///		Removes a state from the pending list. If no pending state remains, the player enters the Idle state
+	/// </summary>
+	/// <param name="state"></param>
+	public void RemovePendingState(PlayerState state)
+	{
+		if(!pendingStates.Contains(state))
+		{
+			return;
+		}
+
+		pendingStates.Remove(state);
+
+		if(pendingStates.Count == 0)
+		{
+			playerState = PlayerState.Idle;
+			subscribers.Where(s => s.State == PlayerState.Idle).ToList().ForEach(s => s.Method.Invoke());
+		}
+	}
+
+
 
 	/// <summary>
 	///		Adds a new subscriber to the list

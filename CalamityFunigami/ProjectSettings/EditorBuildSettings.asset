@@ -11,7 +11,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FirstRoom.unity
     guid: bda967ad0978e5b44bb7a4bb88a70516
-  - enabled: 1
-    path: Assets/Imported/polyperfect/Poly Halloween/- Demo Scenes/05 Graveyard.unity
-    guid: 669716b1cdf60e943962eae184f2693e
   m_configObjects: {}

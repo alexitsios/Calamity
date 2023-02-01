@@ -418,7 +418,7 @@ RectTransform:
   m_Children:
   - {fileID: 3907544522328328509}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -442,7 +442,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 1
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -459,12 +459,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -503,8 +503,6 @@ MonoBehaviour:
   m_height: 4
   m_cellSize: 100
   m_origin: {fileID: 3907544523275573174}
-  debugMarker: {fileID: 8919948377234770650, guid: 3cdb6ce0c6d0c294a980099000be753d, type: 3}
-  showDebug: 1
 --- !u!114 &3907544521488998213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,6 +521,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 34ceb2c1cc0695546a13fc6a16182342, type: 2}
   - {fileID: 11400000, guid: 961ab84601f87c14693a5b81b34ec73d, type: 2}
   - {fileID: 11400000, guid: 4f9494129c8e9da439a58e9bc552ac6a, type: 2}
+  testItemCountToAdd: 0
 --- !u!1 &3907544521551122802
 GameObject:
   m_ObjectHideFlags: 0

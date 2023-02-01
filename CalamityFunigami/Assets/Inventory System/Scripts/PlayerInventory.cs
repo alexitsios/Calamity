@@ -1,42 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInventory : MonoBehaviour
 {
     public delegate void OnInventoryChangeCallback();
     public OnInventoryChangeCallback onInventoryChange;
 
-    [SerializeField] private InventoryDisplay display;
+    private InventoryDisplay display;
 
-    public List<InventoryElement> inventoryElements = new List<InventoryElement>();
+    private List<InventoryElement> _inventoryElements;
+    public List<InventoryElement> InventoryElements => _inventoryElements;
 
     private int previousX; //hold the previous grid location of items being dragged
     private int previousY;
 
-    [SerializeField] private Item[] testItems;
-    [SerializeField] private int testItemCountToAdd; //add the stackable ammo in larger quantities. For testing adding stacks
-
-    //For testing only
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            AddItem(testItems[0]);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            AddItem(testItems[1]);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            AddItem(testItems[2]);
-        }
+        _inventoryElements = new List<InventoryElement>();
 
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            AddItem(testItems[0], testItemCountToAdd);
-        }
+        //If we get some sort of UI Manager, can just cache it and grab from there
+        display = GameObject.FindObjectOfType<Canvas>().GetComponent<InventoryDisplay>();
+    }
+
+    public void ToggleInventoryDisplay()
+    {
+        display.ToggleDisplay();
     }
 
     //Add new items to the player's inventory
@@ -97,7 +87,7 @@ public class PlayerInventory : MonoBehaviour
         var element = go.GetComponent<InventoryElement>();
         element.SetProperties(item, node.x, node.y, count);
 
-        inventoryElements.Add(element);
+        _inventoryElements.Add(element);
         element.onItemUsed += OnItemUsed;
         element.onElementBeginDrag += OnElementBeginDrag;
         element.onElementEndDrag += OnElementEndDrag;
@@ -172,7 +162,7 @@ public class PlayerInventory : MonoBehaviour
         element.onItemUsed -= OnItemUsed;
         element.onElementBeginDrag -= OnElementBeginDrag;
         element.onElementEndDrag -= OnElementEndDrag;
-        inventoryElements.Remove(element);
+        _inventoryElements.Remove(element);
         Destroy(element.gameObject);
     }
 
@@ -188,11 +178,11 @@ public class PlayerInventory : MonoBehaviour
 
     public InventoryElement FindElement(Item item)
     {
-        for (int i = 0; i < inventoryElements.Count; i++)
+        for (int i = 0; i < _inventoryElements.Count; i++)
         {
-            if (inventoryElements[i].item == item)
+            if (_inventoryElements[i].item == item)
             {
-                return inventoryElements[i];
+                return _inventoryElements[i];
             }
         }
 
@@ -203,11 +193,11 @@ public class PlayerInventory : MonoBehaviour
     {
         var tempList = new List<InventoryElement>();
 
-        for (int i = 0; i < inventoryElements.Count; i++)
+        for (int i = 0; i < _inventoryElements.Count; i++)
         {
-            if (inventoryElements[i].item == item)
+            if (_inventoryElements[i].item == item)
             {
-                tempList.Add(inventoryElements[i]);
+                tempList.Add(_inventoryElements[i]);
             }
         }
 
@@ -218,11 +208,11 @@ public class PlayerInventory : MonoBehaviour
     {
         var tempList = new List<InventoryElement>();
 
-        for (int i = 0; i < inventoryElements.Count; i++)
+        for (int i = 0; i < _inventoryElements.Count; i++)
         {
-            if (inventoryElements[i].item == item && inventoryElements[i].count < inventoryElements[i].item.MaxStackCount)
+            if (_inventoryElements[i].item == item && _inventoryElements[i].count < _inventoryElements[i].item.MaxStackCount)
             {
-                tempList.Add(inventoryElements[i]);
+                tempList.Add(_inventoryElements[i]);
             }
         }
 

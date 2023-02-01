@@ -1,35 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryDisplay : MonoBehaviour
 {
     private InventoryGrid<GridNode> grid;
 
-    [SerializeField] private int m_width;
-    [SerializeField] private int m_height;
-    [SerializeField] private float m_cellSize;
-    [SerializeField] private Transform m_origin;
+    [SerializeField] private RectTransform _panel;
+    [SerializeField] private int _width;
+    [SerializeField] private int _height;
+    [SerializeField] private float _cellSize;
+    [SerializeField] private Transform _origin;
 
-    public int Width => m_width;
-    public int Height => m_height;
-    public float CellSize => m_cellSize;
-    public Transform Origin => m_origin;
+    public int Width => _width;
+    public int Height => _height;
+    public float CellSize => _cellSize;
+    public Transform Origin => _origin;
 
     private List<GridNode> openList; //nodes to search
 
-    [Header("Testing")]
-    [SerializeField] private GameObject debugMarker;
-    [SerializeField] private bool showDebug;
+    [Space]
+    [SerializeField] private Vector2 _shownPosition;
+    [SerializeField] private Vector2 _hiddenPosition;
+    private Coroutine lerpPanelCoroutine;
+    private bool isShown;
 
     private void Start()
     {
         CreateGrid();
+        _panel.anchoredPosition = _hiddenPosition;
     }
 
     private void CreateGrid()
     {
-        grid = new InventoryGrid<GridNode>(this, m_width, m_height, m_cellSize, m_origin, (InventoryGrid<GridNode> grid, int x, int y) => new GridNode(grid, x, y), debugMarker, showDebug);
+        grid = new InventoryGrid<GridNode>(this, _width, _height, _cellSize, _origin, (InventoryGrid<GridNode> grid, int x, int y) => new GridNode(grid, x, y));
     }
 
     public void OnToggleNodeIsOccupied(int x, int y, bool isOccupied)
@@ -134,7 +139,7 @@ public class InventoryDisplay : MonoBehaviour
 
     public Vector3 GetGridPosition(int x, int y)
     {
-        return m_origin.position + new Vector3(x * CellSize, y * CellSize);
+        return _origin.position + new Vector3(x * CellSize, y * CellSize);
     }
 
     public bool OnValidateNewPosition(GridNode newNode, int width, int height)
@@ -172,5 +177,32 @@ public class InventoryDisplay : MonoBehaviour
         }
 
         return true;
+    }
+
+    public void ToggleDisplay()
+    {
+        isShown = !isShown;
+
+        if (lerpPanelCoroutine != null) StopCoroutine(lerpPanelCoroutine);
+        lerpPanelCoroutine = StartCoroutine(LerpPanel());
+    }
+
+    private IEnumerator LerpPanel()
+    {
+        var startPos = _panel.anchoredPosition;
+        var endPos = _shownPosition;
+        if (!isShown)
+        {
+            endPos = _hiddenPosition;
+        }
+
+        float t = 0;
+        while (t < 0.2f)
+        {
+            _panel.anchoredPosition = Vector2.Lerp(startPos, endPos, (t / 0.2f));
+            t += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        _panel.anchoredPosition = endPos;
     }
 }

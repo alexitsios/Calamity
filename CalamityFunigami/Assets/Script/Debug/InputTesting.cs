@@ -15,6 +15,11 @@ public class InputTesting : MonoBehaviour
 		inputAction.Player.Action.performed += LogInput;
 		inputAction.Player.Inventory.performed += LogInput;
 		inputAction.Player.Map.performed += LogInput;
+
+		inputAction.Player.Inventory.performed += delegate 
+		{
+			GetComponent<PlayerInventory>().ToggleInventoryDisplay();
+		};
 	}
 
 	private void LogInput(CallbackContext obj)

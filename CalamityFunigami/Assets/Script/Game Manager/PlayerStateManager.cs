@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class PlayerStates : MonoBehaviour
+public class PlayerStateManager : MonoBehaviour
 {
 	#region Public Variables
-	public static PlayerStates Instance { get; private set; }
+	public static PlayerStateManager Instance { get; private set; }
 	#endregion
 
 	#region Private Variables
 	private PlayerState playerState;
-	private List<PlayerState> pendingStates;
-	private List<Subscriber> subscribers;
+	private List<PlayerState> pendingStates = new();
+	private List<Subscriber> subscribers = new();
 	#endregion
 
 	private void Awake()
@@ -38,14 +38,18 @@ public class PlayerStates : MonoBehaviour
 	/// <param name="state">The new state</param>
 	public void TrySetCurrentPlayerState(PlayerState state)
 	{
+		if(pendingStates.Contains(state))
+		{
+			return;
+		}
+
 		pendingStates.Add(state);
 
 		var maxPendingState = pendingStates.Max(p => p);
 
 		if(maxPendingState > playerState)
 		{
-			playerState = maxPendingState;
-			subscribers.Where(s => s.State == playerState).ToList().ForEach(s => s.Method.Invoke());
+			SetPlayerState(maxPendingState);
 		}
 	}
 
@@ -64,12 +68,15 @@ public class PlayerStates : MonoBehaviour
 
 		if(pendingStates.Count == 0)
 		{
-			playerState = PlayerState.Idle;
-			subscribers.Where(s => s.State == PlayerState.Idle).ToList().ForEach(s => s.Method.Invoke());
+			SetPlayerState(PlayerState.Idle);
 		}
 	}
 
-
+	private void SetPlayerState(PlayerState state)
+	{
+		playerState = state;
+		subscribers.Where(s => s.State == playerState).ToList().ForEach(s => s.Method.Invoke());
+	}
 
 	/// <summary>
 	///		Adds a new subscriber to the list

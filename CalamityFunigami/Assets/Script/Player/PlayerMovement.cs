@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if(!TryGetComponent(out characterController))
 		{
-			throw new Exception($"The PlayerMovement script requires a CharacterController attached to the same object. Please attach one to [{gameObject.name}] before running the scene");
+			Debug.LogError($"The PlayerMovement script requires a CharacterController attached to the same object. Please attach one to [{gameObject.name}] before running the scene");
 		}
 
 		inputActions = new PlayerInputActions();
@@ -39,8 +39,11 @@ public class PlayerMovement : MonoBehaviour
 	{
 		var moveInput = inputActions.Player.Move.ReadValue<Vector2>();
 
-		movement = moveInput.y;
-		turn = moveInput.x;
+		if(PlayerStateManager.Instance.GetCurrentPlayerState() <= PlayerState.Running)
+		{
+			movement = moveInput.y;
+			turn = moveInput.x;
+		}
 
 		if(movement != 0f)
 		{
@@ -52,8 +55,8 @@ public class PlayerMovement : MonoBehaviour
 		}
 		else
 		{
-            SetAnimatorMoving(false);
-        }
+			SetAnimatorMoving(false);
+		}
 
 		if(turn != 0f)
 		{
@@ -61,12 +64,24 @@ public class PlayerMovement : MonoBehaviour
 
 			transform.Rotate(Time.fixedDeltaTime * turnRate);
 		}
+
+		if(movement == 0f && turn == 0f)
+		{
+			PlayerStateManager.Instance.RemovePendingState(PlayerState.Walking);
+		}
+		else
+		{ 
+			PlayerStateManager.Instance.TrySetCurrentPlayerState(PlayerState.Walking);
+		}
 	}
 
 	private void SetAnimatorMoving(bool moving)
 	{
-		if (Animator == null)
+		if(Animator == null)
+		{
 			Debug.LogError("Your player is missing an animator or an animator subscription script");
+		}
+
 		Animator.SetBool("Moving", moving);
 	}
 }

@@ -19,6 +19,13 @@ public class PlayerInteraction : MonoBehaviour
 	[System.Obsolete]
 	private void InteractWith(CallbackContext obj)
 	{
+		if(PlayerStateManager.Instance.GetCurrentPlayerState() > PlayerState.Interacting)
+		{
+			return;
+		}
+
+		PlayerStateManager.Instance.TrySetCurrentPlayerState(PlayerState.Interacting);
+
 		var forward = transform.TransformDirection(Vector3.forward);
 
 		DebugController.Instance.DrawRaycast(transform.position, forward, Color.red, 5);

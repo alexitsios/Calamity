@@ -29,6 +29,9 @@ public class DebugController : MonoBehaviour
 	[Tooltip("Log actions performed during gameplay")]
 	public bool logActions;
 
+	[Tooltip("Prints the current player state on the screen")]
+	public bool playerStates;
+
 	#endregion
 
 	private void Awake()
@@ -82,5 +85,15 @@ public class DebugController : MonoBehaviour
 		{
 			Destroy(obj);
 		}
+	}
+
+	public void OnGUI()
+	{
+		if(!playerStates)
+		{
+			return;
+		}
+
+		GUI.Box(new Rect(0, 0, 100, 30), PlayerStateManager.Instance.GetCurrentPlayerState().ToString());
 	}
 }

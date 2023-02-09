@@ -44,6 +44,15 @@ public partial class @AssetGalleryInputAction : IInputActionCollection2, IDispos
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Pan"",
+                    ""type"": ""Value"",
+                    ""id"": ""add3923a-9e3c-4e3b-bdb7-10ea9795bb71"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -134,6 +143,61 @@ public partial class @AssetGalleryInputAction : IInputActionCollection2, IDispos
                     ""action"": ""Zoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""2d759516-8485-45ca-877d-2429d10a4bf3"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pan"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""2c21507d-d97b-417c-b898-fcd0b186d3fb"",
+                    ""path"": ""<Mouse>/delta/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pan"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""50c02c5f-f37b-4988-bbec-e769cd642a57"",
+                    ""path"": ""<Mouse>/delta/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pan"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""b0d671c9-e23b-4957-bf3b-3ab296ad68d7"",
+                    ""path"": ""<Mouse>/delta/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pan"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""b0c51852-5641-4bf1-b5a5-5c7a039fb88f"",
+                    ""path"": ""<Mouse>/delta/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pan"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -144,6 +208,7 @@ public partial class @AssetGalleryInputAction : IInputActionCollection2, IDispos
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
         m_Camera_Move = m_Camera.FindAction("Move", throwIfNotFound: true);
         m_Camera_Zoom = m_Camera.FindAction("Zoom", throwIfNotFound: true);
+        m_Camera_Pan = m_Camera.FindAction("Pan", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -205,12 +270,14 @@ public partial class @AssetGalleryInputAction : IInputActionCollection2, IDispos
     private ICameraActions m_CameraActionsCallbackInterface;
     private readonly InputAction m_Camera_Move;
     private readonly InputAction m_Camera_Zoom;
+    private readonly InputAction m_Camera_Pan;
     public struct CameraActions
     {
         private @AssetGalleryInputAction m_Wrapper;
         public CameraActions(@AssetGalleryInputAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Camera_Move;
         public InputAction @Zoom => m_Wrapper.m_Camera_Zoom;
+        public InputAction @Pan => m_Wrapper.m_Camera_Pan;
         public InputActionMap Get() { return m_Wrapper.m_Camera; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -226,6 +293,9 @@ public partial class @AssetGalleryInputAction : IInputActionCollection2, IDispos
                 @Zoom.started -= m_Wrapper.m_CameraActionsCallbackInterface.OnZoom;
                 @Zoom.performed -= m_Wrapper.m_CameraActionsCallbackInterface.OnZoom;
                 @Zoom.canceled -= m_Wrapper.m_CameraActionsCallbackInterface.OnZoom;
+                @Pan.started -= m_Wrapper.m_CameraActionsCallbackInterface.OnPan;
+                @Pan.performed -= m_Wrapper.m_CameraActionsCallbackInterface.OnPan;
+                @Pan.canceled -= m_Wrapper.m_CameraActionsCallbackInterface.OnPan;
             }
             m_Wrapper.m_CameraActionsCallbackInterface = instance;
             if (instance != null)
@@ -236,6 +306,9 @@ public partial class @AssetGalleryInputAction : IInputActionCollection2, IDispos
                 @Zoom.started += instance.OnZoom;
                 @Zoom.performed += instance.OnZoom;
                 @Zoom.canceled += instance.OnZoom;
+                @Pan.started += instance.OnPan;
+                @Pan.performed += instance.OnPan;
+                @Pan.canceled += instance.OnPan;
             }
         }
     }
@@ -244,5 +317,6 @@ public partial class @AssetGalleryInputAction : IInputActionCollection2, IDispos
     {
         void OnMove(InputAction.CallbackContext context);
         void OnZoom(InputAction.CallbackContext context);
+        void OnPan(InputAction.CallbackContext context);
     }
 }

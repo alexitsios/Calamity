@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[System.Obsolete]
 public class MenuController : MonoBehaviour
 {
     public void StartGame() => SceneManager.LoadScene(1);

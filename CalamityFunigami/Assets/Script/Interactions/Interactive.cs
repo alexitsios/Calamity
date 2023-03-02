@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 
 public class Interactive : MonoBehaviour
 {
@@ -8,9 +8,7 @@ public class Interactive : MonoBehaviour
 	private string inkKnotName;
 	#endregion
 
-	#region Private Variables
-	private StoryManager scriptManager;
-	#endregion
+	//private StoryManager scriptManager;	
 
 	private void Start()
 	{
@@ -28,3 +26,4 @@ public class Interactive : MonoBehaviour
 		scriptManager.ProcessStory();
 	}
 }
+*/

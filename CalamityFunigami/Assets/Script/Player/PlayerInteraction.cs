@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerInteraction : MonoBehaviour
@@ -15,7 +15,6 @@ public class PlayerInteraction : MonoBehaviour
 		input.Player.Action.performed += InteractWith;
 	}
 
-	// Update is called once per frame
 	[System.Obsolete]
 	private void InteractWith(CallbackContext obj)
 	{
@@ -32,3 +31,4 @@ public class PlayerInteraction : MonoBehaviour
 		}
 	}
 }
+*/

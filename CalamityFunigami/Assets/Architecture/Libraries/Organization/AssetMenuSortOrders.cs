@@ -1,7 +1,7 @@
 namespace Calamity.AssetOrganization
 {
     /// <summary>
-    /// Paths and sort order for menu items.
+    /// Paths and sort order for custom asset items in the creation menu.
     /// </summary>
     public struct AssetMenuSortOrders
     {

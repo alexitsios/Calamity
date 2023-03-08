@@ -14,6 +14,8 @@ public class SceneListMenu
         public static void LoadEventLogger() { SceneMenuListGenerator.OpenScene("Assets/Scenes/Game Scenes/Background Elements/EventLogger.unity"); }
         [MenuItem(" 🎬  Scenes/Gameplay/FirstRoom")]
         public static void LoadFirstRoom() { SceneMenuListGenerator.OpenScene("Assets/Scenes/Game Scenes/Gameplay/FirstRoom.unity"); }
+        [MenuItem(" 🎬  Scenes/Gameplay/Morgue")]
+        public static void LoadMorgue() { SceneMenuListGenerator.OpenScene("Assets/Scenes/Game Scenes/Gameplay/Morgue.unity"); }
         [MenuItem(" 🎬  Scenes/UI/MainMenu")]
         public static void LoadMainMenu() { SceneMenuListGenerator.OpenScene("Assets/Scenes/Game Scenes/UI/MainMenu.unity"); }
 #endif

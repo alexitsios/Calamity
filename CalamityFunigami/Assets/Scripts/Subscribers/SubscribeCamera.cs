@@ -12,5 +12,6 @@ public class SubscribeCamera : MonoBehaviour
             Debug.LogError($"Too many cameras are trying to subscribe to a static camera prefab named {gameObject.name}");
         }
         controller.Camera = GetComponent<Camera>();
+        controller.Listener = GetComponent<AudioListener>();
     }
 }

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3329e1651328d48dcb65bd787419271e, type: 3}
-  m_Name: InitialGameplayScenes
+  m_Script: {fileID: 11500000, guid: 511344df0295e4f72977afad985a0d6e, type: 3}
+  m_Name: FirstRoom-obsolete
   m_EditorClassIdentifier: 
-  Scenes:
-  - {fileID: 11400000, guid: bce7e158e4fcb4f1ca66004abc60a672, type: 2}
+  SceneFinishedLoadingEvent: {fileID: 0}
+  ScenePath: 

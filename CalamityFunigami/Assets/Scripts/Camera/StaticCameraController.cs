@@ -14,8 +14,10 @@ public class StaticCameraController : MonoBehaviour
         var manager = other.gameObject.GetComponent<CameraManager>();
         manager.ActiveCamera.enabled = false;
         manager.ActiveListener.enabled = false;
+
         Camera.enabled = true;
         Listener.enabled = true;
+
         manager.ActiveCamera = Camera;
         manager.ActiveListener = Listener;
     }

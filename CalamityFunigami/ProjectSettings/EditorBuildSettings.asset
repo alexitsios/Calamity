@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Game Scenes/UI/MainMenu.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Game Scenes/Gameplay/FirstRoom.unity
-    guid: bda967ad0978e5b44bb7a4bb88a70516
+    path: Assets/Scenes/Game Scenes/Gameplay/Morgue.unity
+    guid: 6ada0abaf16d93c40b0fb5a065d3c400
+  - enabled: 1
+    path: Assets/Scenes/Game Scenes/Gameplay/Laboratory.unity
+    guid: d161900c0e5de314aa62268130c63087
+  - enabled: 1
+    path: Assets/Scenes/Game Scenes/Gameplay/Cemetery.unity
+    guid: 56ccc82b4f17d4429af03625909363f7
   m_configObjects: {}

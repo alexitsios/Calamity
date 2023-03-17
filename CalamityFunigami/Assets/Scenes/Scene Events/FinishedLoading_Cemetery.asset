@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 511344df0295e4f72977afad985a0d6e, type: 3}
-  m_Name: FirstRoom
+  m_Script: {fileID: 11500000, guid: 8409789ccf9d54c6d8214a9908984dbd, type: 3}
+  m_Name: FinishedLoading_Cemetery
   m_EditorClassIdentifier: 
-  SceneFinishedLoadingEvent: {fileID: 11400000, guid: f5d06247d70f449b997fa358caeef984, type: 2}
-  ScenePath: Assets/Scenes/Game Scenes/Gameplay/FirstRoom.unity
+  EventEnabled: 1

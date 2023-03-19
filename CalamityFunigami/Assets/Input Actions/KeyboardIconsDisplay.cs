@@ -81,6 +81,13 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
 
             [Space]
 
+            public Sprite upArrow;
+            public Sprite downArrow;
+            public Sprite leftArrow;
+            public Sprite rightArrow;
+
+            [Space]
+
             public Sprite escape;
             public Sprite space;
             public Sprite tab;
@@ -131,6 +138,11 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                     case "7": return numbers[7];
                     case "8": return numbers[8];
                     case "9": return numbers[9];
+
+                    case "upArrow": return upArrow;
+                    case "downArrow": return downArrow;
+                    case "leftArrow": return leftArrow;
+                    case "rightArrow": return rightArrow;
 
                     case "escape": return escape;
                     case "space": return space;

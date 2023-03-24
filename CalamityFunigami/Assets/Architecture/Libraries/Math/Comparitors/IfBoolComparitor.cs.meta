@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: b6a2f9b97ff584a43aa05e663ffd9891
+labels:
+- Locked
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.Audio;
-using Calamity.AssetOrganization;
+﻿using Calamity.AssetOrganization;
 using Calamity.Primitives;
+using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Calamity.Audio
 {
@@ -15,6 +15,6 @@ namespace Calamity.Audio
             float targetFloat = (targetVolume.Value > 0) ? Mathf.Log10(targetVolume.Value) * 20 : -80;
             _MixerGroup.audioMixer.SetFloat(_MixerGroup.name, targetFloat);
 
-        }
+        }        
     }
 }

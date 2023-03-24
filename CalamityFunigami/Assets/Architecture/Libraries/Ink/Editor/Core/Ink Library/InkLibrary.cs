@@ -204,9 +204,9 @@ namespace Ink.UnityIntegration {
 		}
 
         public static void Add (InkFile inkFile) {
-            instance.inkLibrary.Add(inkFile);
+            instance?.inkLibrary?.Add(inkFile);
 			SortInkLibrary();
-			instance.inkLibraryDictionary.Add(inkFile.inkAsset, inkFile);
+			instance?.inkLibraryDictionary?.Add(inkFile?.inkAsset, inkFile);
         }
         public static void RemoveAt (int index) {
             var inkFile = instance.inkLibrary[index];

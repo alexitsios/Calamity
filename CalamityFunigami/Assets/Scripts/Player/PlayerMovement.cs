@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
@@ -16,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
 	#region Private Variables
 	private CharacterController characterController;
-	private PlayerInputActions inputActions;
+	private PlayerInput playerInput;
 	private float movement;
 	private float turn;
 	#endregion
@@ -29,15 +30,12 @@ public class PlayerMovement : MonoBehaviour
 		{
 			throw new Exception($"The PlayerMovement script requires a CharacterController attached to the same object. Please attach one to [{gameObject.name}] before running the scene");
 		}
-
-		inputActions = new PlayerInputActions();
-
-		inputActions.Enable();
+		playerInput = GetComponent<PlayerInput>();
 	}
 
 	private void FixedUpdate()
 	{
-		var moveInput = inputActions.Player.Move.ReadValue<Vector2>();
+		var moveInput = playerInput.actions["Move"].ReadValue<Vector2>();
 
 		movement = moveInput.y;
 		turn = moveInput.x;

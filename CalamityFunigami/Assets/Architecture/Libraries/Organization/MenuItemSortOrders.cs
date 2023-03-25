@@ -8,6 +8,7 @@ namespace Calamity.AssetOrganization
     {
         // Top level domains
         public const string Scenes = Emoji.EmojiConstants.ClapperBoard + " Scenes/";
+        public const string Tools = "Tools/";
 
         // Second level domains
         public const string SceneSettings = Scenes + Emoji.EmojiConstants.Gear + " Settings/";

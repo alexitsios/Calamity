@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Calamity.EventSystem;
 
 namespace Calamity.CommandSystem
@@ -14,11 +15,13 @@ namespace Calamity.CommandSystem
         /// </summary>
         [Header("*Optional")]
         [SerializeField] private List<GameEvent> _callbackEvents;
+        [SerializeField] private FeedbackCollection _feedbackCollection;
 
 #if UNITY_EDITOR
         // Display notes field in the inspector.
         [Multiline, SerializeField, Space(10)]
-        private string DeveloperNotes = "";
+        [FormerlySerializedAs("DeveloperNotes")]
+        private string _developerNotes = "";
 #endif
 
         private CommandLogger _commandLogger;
@@ -38,6 +41,7 @@ namespace Calamity.CommandSystem
 
             LogSuccess();
             InvokeCallbackEvents();
+            InvokeFeedback();
         }
 
         /// <summary>
@@ -87,6 +91,18 @@ namespace Calamity.CommandSystem
             for (i = 0; i < _callbackEvents?.Count; i++)
             {
                 _callbackEvents?[i].Invoke();
+            }
+        }
+
+        /// <summary>
+        /// Triggers all items in feedback collection.
+        /// </summary>
+        private void InvokeFeedback()
+        {
+            int i;
+            for (i = 0; i < _feedbackCollection?.Items.Count; i++)
+            {
+                _feedbackCollection?.Items[i].Invoke();
             }
         }
 

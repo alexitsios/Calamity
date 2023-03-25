@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cbbfb37ce1124843ab5d4a1ecc89301, type: 3}
+  m_Name: _TestAudioPlaySound
+  m_EditorClassIdentifier: 
+  _soundEffectsPlayer: {fileID: 11400000, guid: 6cfbc1988c2ba4ea6bbc44aaae19b893, type: 2}
+  _audioEvent: {fileID: 11400000, guid: 9524e33057ff542aca46f2cfb8bccded, type: 2}

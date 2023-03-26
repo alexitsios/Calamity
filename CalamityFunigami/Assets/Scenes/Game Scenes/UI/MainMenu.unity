@@ -316,6 +316,14 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 257743377670338782, guid: 2b2dbf27759b2d04eaea39ddbde97407, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c96e724e22b28634a9bb7900fe573426, type: 2}
+    - target: {fileID: 257743377670338782, guid: 2b2dbf27759b2d04eaea39ddbde97407, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -6614092981478385310, guid: c96e724e22b28634a9bb7900fe573426, type: 2}
     - target: {fileID: 257743379275832099, guid: 2b2dbf27759b2d04eaea39ddbde97407, type: 3}
       propertyPath: m_Name
       value: Main Menu
@@ -503,6 +511,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4200657817671052367, guid: 7fac2407db7cdc7489748512b2d403dd, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c96e724e22b28634a9bb7900fe573426, type: 2}
+    - target: {fileID: 4200657817671052367, guid: 7fac2407db7cdc7489748512b2d403dd, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -6614092981478385310, guid: c96e724e22b28634a9bb7900fe573426, type: 2}
     - target: {fileID: 4732740917066677127, guid: 7fac2407db7cdc7489748512b2d403dd, type: 3}
       propertyPath: m_Name
       value: Pause Menu

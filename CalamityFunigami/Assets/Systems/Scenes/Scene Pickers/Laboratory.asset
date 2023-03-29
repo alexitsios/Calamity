@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511344df0295e4f72977afad985a0d6e, type: 3}
   m_Name: Laboratory
   m_EditorClassIdentifier: 
+  StaticScene: 0
+  ScenePath: Assets/Systems/Scenes/Game Scenes/Gameplay/Laboratory.unity
   SceneFinishedLoadingEvent: {fileID: 11400000, guid: 70bc2d6128c04478d9e795dc3a32c4e7, type: 2}
-  ScenePath: Assets/Scenes/Game Scenes/Gameplay/Laboratory.unity

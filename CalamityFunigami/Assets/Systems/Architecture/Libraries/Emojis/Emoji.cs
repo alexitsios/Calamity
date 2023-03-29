@@ -263,6 +263,8 @@ namespace Seeker.Emojis
             public const string MinusSign = " ➖ ";
             public const string PlusSign = " ➕ ";
 
+            public const string Wrench = " 🔧 ";             
+
             /*
              To be added later:
             

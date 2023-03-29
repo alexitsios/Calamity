@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: BootLoader
   m_EditorClassIdentifier: 
   StaticScene: 1
+  ScenePath: Assets/Systems/Scenes/Game Scenes/BackgroundElements/BootLoader.unity
   SceneFinishedLoadingEvent: {fileID: 0}

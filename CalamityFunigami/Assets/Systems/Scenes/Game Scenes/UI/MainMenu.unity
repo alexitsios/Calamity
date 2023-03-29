@@ -236,7 +236,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7402814971748696476, guid: 4a002d2e55e3444bb89e4e60430db635, type: 3}
-      propertyPath: _callbackEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: CallbackEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 288196061}
     - target: {fileID: 7402814971748696477, guid: 4a002d2e55e3444bb89e4e60430db635, type: 3}

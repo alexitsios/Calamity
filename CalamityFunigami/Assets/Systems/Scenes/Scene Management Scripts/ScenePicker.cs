@@ -16,9 +16,9 @@ namespace Calamity.SceneManagement
         public bool StaticScene;
 
         /// <summary>
-        /// The path to the Scene file.
+        /// The path to the Scene file. - Hide to overwrite with a custom inspector
         /// </summary>
-        public string ScenePath { get; set; }
+        [HideInInspector]public string ScenePath;
 
         /// <summary>
         /// Event to call after scene has finished loading.

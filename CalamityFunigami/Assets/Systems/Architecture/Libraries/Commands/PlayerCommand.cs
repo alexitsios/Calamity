@@ -90,7 +90,7 @@ namespace Calamity.CommandSystem
             int i;
             for (i = 0; i < _callbackEvents?.Count; i++)
             {
-                _callbackEvents?[i].Invoke();
+                _callbackEvents[i]?.Invoke();
             }
         }
 
@@ -102,7 +102,7 @@ namespace Calamity.CommandSystem
             int i;
             for (i = 0; i < _feedbackCollection?.Items.Count; i++)
             {
-                _feedbackCollection?.Items[i].Invoke();
+                _feedbackCollection.Items[i].Invoke();
             }
         }
 

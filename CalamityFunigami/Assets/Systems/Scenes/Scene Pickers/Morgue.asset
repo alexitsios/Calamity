@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511344df0295e4f72977afad985a0d6e, type: 3}
   m_Name: Morgue
   m_EditorClassIdentifier: 
+  StaticScene: 0
+  ScenePath: Assets/Systems/Scenes/Game Scenes/Gameplay/Morgue.unity
   SceneFinishedLoadingEvent: {fileID: 11400000, guid: f5d06247d70f449b997fa358caeef984, type: 2}
-  ScenePath: Assets/Scenes/Game Scenes/Gameplay/Morgue.unity

@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Audio
   m_EditorClassIdentifier: 
   StaticScene: 1
+  ScenePath: Assets/Systems/Scenes/Game Scenes/BackgroundElements/Audio.unity
   SceneFinishedLoadingEvent: {fileID: 0}

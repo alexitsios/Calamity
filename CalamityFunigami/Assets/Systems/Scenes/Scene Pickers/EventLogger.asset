@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: EventLogger
   m_EditorClassIdentifier: 
   StaticScene: 1
+  ScenePath: Assets/Systems/Scenes/Game Scenes/BackgroundElements/EventLogger.unity
   SceneFinishedLoadingEvent: {fileID: 0}

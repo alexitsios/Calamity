@@ -202,9 +202,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 8073125186806240829, guid: 4246c9f14cbd14f9ba0c78c0de514336, type: 3}
+      propertyPath: TargetGameEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: efe83add31b9641179c38ef795916cbd, type: 2}
+    - target: {fileID: 8073125186806240829, guid: 4246c9f14cbd14f9ba0c78c0de514336, type: 3}
       propertyPath: _developerNotes
       value: Listens for game "start" event, then invokes callback actions.
       objectReference: {fileID: 0}
+    - target: {fileID: 8073125186806240829, guid: 4246c9f14cbd14f9ba0c78c0de514336, type: 3}
+      propertyPath: CallbackEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1938908425}
     - target: {fileID: 8073125186806240829, guid: 4246c9f14cbd14f9ba0c78c0de514336, type: 3}
       propertyPath: _callbackEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

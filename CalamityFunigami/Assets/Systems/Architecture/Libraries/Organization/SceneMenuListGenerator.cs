@@ -51,9 +51,16 @@ namespace Calamity.SceneManagement
                     string assetPath = AssetPathToScenesFolder + subPath;
 
                     string functionName = fileInfo.Name.Replace(".unity", "").Replace(" ", "").Replace("-", "").Replace("🧪", "");
+                    string scenePrefix = "Scenes/Open/";
 
-                    result.Append($"        [MenuItem(\"{Emoji.EmojiConstants.ClapperBoard} Scenes").Append(subPath.Replace(".unity", "")).Append("\")]").Append(Environment.NewLine);
-                    result.Append("        public static void Load").Append(functionName).Append("() { SceneMenuListGenerator.OpenScene(\"").Append(assetPath).Append("\"); }").Append(Environment.NewLine); ;
+                    if (subPath.StartsWith("/Gameplay/"))
+                    {
+                        // Remove "Gameplay/" from the subPath to move it up one level
+                        subPath = subPath.Replace("/Gameplay/", "/");
+                    }
+
+                    result.Append($"        [MenuItem(\"{Emoji.EmojiConstants.ClapperBoard} {scenePrefix}{subPath.Replace(".unity", "")}\")]").Append(Environment.NewLine);
+                    result.Append("        public static void Load").Append(functionName).Append("() { SceneMenuListGenerator.OpenScene(\"").Append(assetPath).Append("\"); }").Append(Environment.NewLine);
                 }
             }
             AssetDatabase.Refresh();

@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511344df0295e4f72977afad985a0d6e, type: 3}
   m_Name: MainMenu
   m_EditorClassIdentifier: 
+  StaticScene: 0
+  ScenePath: Assets/Systems/Scenes/Game Scenes/UI/MainMenu.unity
   SceneFinishedLoadingEvent: {fileID: 11400000, guid: 6b4b1ea870c5d48aeb0d70b3a6b9893f, type: 2}
-  ScenePath: Assets/Scenes/Game Scenes/UI/MainMenu.unity

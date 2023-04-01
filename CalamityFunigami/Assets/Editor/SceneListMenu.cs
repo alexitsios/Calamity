@@ -8,6 +8,8 @@ public class SceneListMenu
 #if UNITY_EDITOR
         [MenuItem(" 🎬  Scenes/Test Environment")]
         public static void LoadTestEnvironment() { SceneMenuListGenerator.OpenScene("Assets/Scenes/Game Scenes/Test Environment.unity"); }
+        [MenuItem(" 🎬  Scenes/Background Elements/Audio")]
+        public static void LoadAudio() { SceneMenuListGenerator.OpenScene("Assets/Scenes/Game Scenes/Background Elements/Audio.unity"); }
         [MenuItem(" 🎬  Scenes/Background Elements/BootLoader")]
         public static void LoadBootLoader() { SceneMenuListGenerator.OpenScene("Assets/Scenes/Game Scenes/Background Elements/BootLoader.unity"); }
         [MenuItem(" 🎬  Scenes/Background Elements/EventLogger")]

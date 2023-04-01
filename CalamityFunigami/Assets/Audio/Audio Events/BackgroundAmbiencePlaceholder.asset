@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28367ac5aacb34d7393107b75f9a7234, type: 3}
+  m_Name: BackgroundAmbiencePlaceholder
+  m_EditorClassIdentifier: 
+  LimitOneSimultaneous: 1
+  AudioFiles:
+  - {fileID: 11400000, guid: c630412dc8cba428f8dcddc556661152, type: 2}
+  Volume:
+    MinValue: 0.8051948
+    MaxValue: 1
+  Pitch:
+    MinValue: 0.9350649
+    MaxValue: 1.0649351

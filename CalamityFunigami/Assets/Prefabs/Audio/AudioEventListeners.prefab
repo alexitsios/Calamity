@@ -44,23 +44,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 171aac830ca1445acbf46ef3c627502b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameEvent: {fileID: 11400000, guid: efe83add31b9641179c38ef795916cbd, type: 2}
-  _callbackEvent:
+  TargetGameEvent: {fileID: 11400000, guid: efe83add31b9641179c38ef795916cbd, type: 2}
+  CallbackEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Calamity.Audio.SoundEffectsPlayer, Assembly-CSharp
+        m_TargetAssemblyTypeName: Calamity.Audio.SoundEffectsPlayer, Calamity.Architecture.Core
         m_MethodName: LoopSound
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 5ec166ee00656411fbdbe372a7951031, type: 2}
-          m_ObjectArgumentAssemblyTypeName: Calamity.Audio.AudioEvent, Assembly-CSharp
+          m_ObjectArgument: {fileID: 11400000, guid: 2dd57b48318f24ec484e8ea2ed50cfa8, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Calamity.Audio.AudioEvent, Calamity.Architecture.Core
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  DeveloperNotes: Plays to start the game.
+  _developerNotes: Listens for game "start" event, then invokes callback actions.
 --- !u!1 &8073125188538580635
 GameObject:
   m_ObjectHideFlags: 0

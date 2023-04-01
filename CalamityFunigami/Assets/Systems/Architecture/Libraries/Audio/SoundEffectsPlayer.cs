@@ -30,7 +30,8 @@ namespace Calamity.Audio
         private IEnumerator DestroyAudioSourceRoutine(AudioSource source)
         {
             yield return new WaitForSeconds(source.clip.length);
-            Destroy(source);
+            source.enabled = false;
+            //Destroy(source);
         }
     }
 }

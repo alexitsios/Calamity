@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731725, g: 0.13414744, b: 0.12107873, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -237,6 +237,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BootScript
       objectReference: {fileID: 0}
+    - target: {fileID: 6239184257558579778, guid: be68b10b5890244d49e9cb21dc8fdba6, type: 3}
+      propertyPath: _activeLoadedScenes
+      value: 
+      objectReference: {fileID: 11400000, guid: 5f0145ddd98a94ab69a320813c70e7ec, type: 2}
     - target: {fileID: 6239184257558579778, guid: be68b10b5890244d49e9cb21dc8fdba6, type: 3}
       propertyPath: _loadingProgressBar
       value: 

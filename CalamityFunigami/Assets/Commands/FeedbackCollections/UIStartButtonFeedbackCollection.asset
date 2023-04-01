@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35ba056ddb363471e87dd4a2be025c08, type: 3}
   m_Name: UIStartButtonFeedbackCollection
   m_EditorClassIdentifier: 
-  Items:
-  - {fileID: 11400000, guid: c0668f1930c5a463394dc1ebd0ab0abf, type: 2}
+  Items: []

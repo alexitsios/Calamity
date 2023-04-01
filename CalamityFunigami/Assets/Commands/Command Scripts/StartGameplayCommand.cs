@@ -20,7 +20,6 @@ namespace Calamity.CommandSystem
         /// <returns>Command success result.</returns>
         private bool StartGameplay()
         {
-        Debug.Log("Start Game");
             // Placeholder - todo - more to come
             return true;
         }

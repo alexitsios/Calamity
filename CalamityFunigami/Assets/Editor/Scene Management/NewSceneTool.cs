@@ -25,7 +25,7 @@ namespace Calamity.SceneManagement
         /// <summary>
         /// Initializes the editor window
         /// </summary>
-        [MenuItem(MenuItemSortOrders.SceneModifications + Emoji.EmojiConstants.PlusSign + "Add New Scene", priority = 80)]
+        [MenuItem(MenuItemSortOrders.SceneModifications + Emoji.EmojiConstants.PlusSign + "Add New Scene", priority = MenuItemSortOrders.SceneModificationsPriority + 1)]
         private static void Init()
         {
             NewSceneTool window = (NewSceneTool)GetWindow(typeof(NewSceneTool));

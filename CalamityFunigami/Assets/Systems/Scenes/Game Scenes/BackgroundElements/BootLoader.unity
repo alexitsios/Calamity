@@ -282,11 +282,11 @@ PrefabInstance:
       value: BootScript
       objectReference: {fileID: 0}
     - target: {fileID: 6239184257558579778, guid: be68b10b5890244d49e9cb21dc8fdba6, type: 3}
-      propertyPath: loadingProgressBar
+      propertyPath: _loadingProgressBar
       value: 
       objectReference: {fileID: 322886678615401089}
     - target: {fileID: 6239184257558579778, guid: be68b10b5890244d49e9cb21dc8fdba6, type: 3}
-      propertyPath: loadingScreenPrefab
+      propertyPath: _loadingScreenPrefab
       value: 
       objectReference: {fileID: 322886678896807510}
     - target: {fileID: 6239184257558579779, guid: be68b10b5890244d49e9cb21dc8fdba6, type: 3}

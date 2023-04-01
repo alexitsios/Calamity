@@ -23,5 +23,9 @@ namespace Calamity.AssetOrganization
         public const int CommandToolsPriority = 20;
         public const int GameplayToolsPriority = 30;
         public const int OrganizationToolsPriority = 40;
+
+        public const int SceneOpenPriority = 60;
+        public const int SceneModificationsPriority = 80;
+        public const int SceneSettingsPriority = 100;
     }
 }

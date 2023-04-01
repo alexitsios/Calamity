@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Obsolete]
 public class EscapeClause : MonoBehaviour
 {
     void Awake() => DontDestroyOnLoad(gameObject);

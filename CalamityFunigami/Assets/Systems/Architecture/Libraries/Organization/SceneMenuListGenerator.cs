@@ -16,7 +16,10 @@ namespace Calamity.SceneManagement
         private const string AssetPathToScenesFolder = "Assets" + PathToScenesFolder;
         private const string PathToOutputScript = "/Editor/Scene Management/SceneListMenu.cs";
 
-        [MenuItem(MenuItemSortOrders.SceneSettings + Emoji.EmojiConstants.Recycle + "Refresh Scene List Menu", priority = 50)]
+        /// <summary>
+        /// Generates the list of menu items that can be used to load Unity scenes.
+        /// </summary>
+        [MenuItem(MenuItemSortOrders.SceneSettings + Emoji.EmojiConstants.Recycle + "Refresh Scene List Menu", priority = MenuItemSortOrders.SceneSettingsPriority + 2)]
         public static void GenerateSceneLoadMenuCode()
         {
             StringBuilder result = new StringBuilder();
@@ -50,7 +53,7 @@ namespace Calamity.SceneManagement
                     string subPath = fileInfo.FullName.Replace('\\', '/').Replace(basePath, "");
                     string assetPath = AssetPathToScenesFolder + subPath;
 
-                    string functionName = fileInfo.Name.Replace(".unity", "").Replace(" ", "").Replace("-", "").Replace("🧪", "");
+                    string functionName = fileInfo.Name.Replace(".unity", "").Replace(" ", "").Replace("-", "");
                     string scenePrefix = "Scenes/Open/";
 
                     if (subPath.StartsWith("/Gameplay/"))
@@ -59,7 +62,7 @@ namespace Calamity.SceneManagement
                         subPath = subPath.Replace("/Gameplay/", "/");
                     }
 
-                    result.Append($"        [MenuItem(\"{Emoji.EmojiConstants.ClapperBoard} {scenePrefix}{subPath.Replace(".unity", "")}\")]").Append(Environment.NewLine);
+                    result.Append($"        [MenuItem(\"{Emoji.EmojiConstants.ClapperBoard} {scenePrefix}{subPath.Replace(".unity", "")}\", priority = MenuItemSortOrders.SceneOpenPriority)]").Append(Environment.NewLine);
                     result.Append("        public static void Load").Append(functionName).Append("() { SceneMenuListGenerator.OpenScene(\"").Append(assetPath).Append("\"); }").Append(Environment.NewLine);
                 }
             }
@@ -69,6 +72,7 @@ namespace Calamity.SceneManagement
         private static void AddClassHeader(StringBuilder result)
         {
             result.Append(@"using UnityEditor;
+using Calamity.AssetOrganization;
 namespace Calamity.SceneManagement {
 /// <summary>
 /// This class was auto generated from the SceneMenuListGenerator
@@ -87,6 +91,10 @@ public class SceneListMenu
 }");
         }
 
+        /// <summary>
+        /// Open the requested scene path.
+        /// </summary>
+        /// <param name="scenePath">File path to scene to open</param>
         public static void OpenScene(string scenePath)
         {
             if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())

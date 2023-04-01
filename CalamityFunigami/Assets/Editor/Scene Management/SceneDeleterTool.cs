@@ -16,7 +16,7 @@ namespace Calamity.SceneManagement
         private Vector2 _sceneScrollPosition;
         private Vector2 _otherSceneScrollPosition;
 
-        [MenuItem(MenuItemSortOrders.SceneModifications + Emoji.EmojiConstants.MinusSign + "Delete Scenes", priority = 82)]
+        [MenuItem(MenuItemSortOrders.SceneModifications + Emoji.EmojiConstants.MinusSign + "Delete Scenes", priority = MenuItemSortOrders.SceneModificationsPriority + 2)]
         private static void Init()
         {
             SceneDeleterTool window = GetWindow<SceneDeleterTool>();

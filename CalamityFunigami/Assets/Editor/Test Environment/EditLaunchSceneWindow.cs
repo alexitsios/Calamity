@@ -26,7 +26,7 @@ namespace Calamity.SceneManagement
         /// <summary>
         /// Display the launch scene window from menu item.
         /// </summary>
-        [MenuItem(MenuItemSortOrders.SceneSettings + Emoji.EmojiConstants.Rocket + " Edit Launch Scene", priority = 50)]
+        [MenuItem(MenuItemSortOrders.SceneSettings + Emoji.EmojiConstants.Rocket + " Edit Launch Scene", priority = MenuItemSortOrders.SceneSettingsPriority + 1)]
         private static void OpenLaunchSceneWindow() => GetWindow<EditLaunchSceneWindow>();
     }
 }

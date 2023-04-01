@@ -14,6 +14,10 @@ namespace Calamity.SceneManagement
     /// </summary>
     public class BootLoader : MonoBehaviour
     {
+
+        [SerializeField]
+        private ActiveScenesSet _activeLoadedScenes;
+
         [FormerlySerializedAs("bootScenes")]
         [SerializeField]
         private SceneCollection _bootScenes;
@@ -47,13 +51,12 @@ namespace Calamity.SceneManagement
             LoadSceneCollectionAdditive(_bootScenes);
         }
 
-        /// <summary>
-        /// Load the event logger before anything else so all events are captured.
-        /// </summary>
+        // Load the event logger before anything else so all events are captured.
         private void PreloadEventLoger()
         {
             string eventLoggerName = Path.GetFileNameWithoutExtension(_eventLogger.ScenePath);
             _scenesToLoad.Add(SceneManager.LoadSceneAsync(eventLoggerName, LoadSceneMode.Additive));
+            _activeLoadedScenes.Add(_eventLogger);
         }
 
         /// <summary>
@@ -68,6 +71,7 @@ namespace Calamity.SceneManagement
 
             string sceneName = Path.GetFileNameWithoutExtension(scene.ScenePath);
             _scenesToLoad.Add(SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive));
+            _activeLoadedScenes.Add(scene);
             StartCoroutine(LoadingWithoutSplashScreen());
         }
 
@@ -85,6 +89,7 @@ namespace Calamity.SceneManagement
 
             string sceneName = Path.GetFileNameWithoutExtension(scene.ScenePath);
             _scenesToLoad.Add(SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive));
+            _activeLoadedScenes.Add(scene);
             StartCoroutine(LoadingWithSplashScreen());
         }
 
@@ -106,6 +111,7 @@ namespace Calamity.SceneManagement
 
                 string sceneName = Path.GetFileNameWithoutExtension(sceneCollection.Scenes[i].ScenePath);
                 _scenesToLoad.Add(SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive));
+                _activeLoadedScenes.Add(sceneCollection.Scenes[i]);
             }
 
             StartCoroutine(LoadingWithSplashScreen());
@@ -119,6 +125,7 @@ namespace Calamity.SceneManagement
         {
             string sceneName = Path.GetFileNameWithoutExtension(scene.ScenePath);
             SceneManager.UnloadSceneAsync(sceneName);
+            _activeLoadedScenes.Remove(scene);
         }
 
         /// <summary>
@@ -126,7 +133,13 @@ namespace Calamity.SceneManagement
         /// </summary>
         public void UnloadNonStaticScenes()
         {
-
+            int i;
+            for(i = 0; i < _activeLoadedScenes.Items.Count; i++)
+            {
+                ScenePicker _scene = _activeLoadedScenes.Items[i];
+                if (!_scene.StaticScene)
+                    UnloadScene(_scene);
+            }
         }
 
         /// <summary>
@@ -140,6 +153,7 @@ namespace Calamity.SceneManagement
             {
                 string sceneName = Path.GetFileNameWithoutExtension(sceneCollection.Scenes[i].ScenePath);
                 SceneManager.UnloadSceneAsync(sceneName);
+                _activeLoadedScenes.Remove(sceneCollection.Scenes[i]);
             }
         }
 

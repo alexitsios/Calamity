@@ -13,7 +13,7 @@ namespace Calamity.SceneManagement
     [InitializeOnLoad()]
     public static class LaunchSceneActivationButton
     {
-        private const string LaunchScenePath = "Assets/Scenes/Game Scenes/Background Elements/BootLoader.unity";
+        private const string LaunchScenePath = "Assets/Systems/Scenes/Game Scenes/BackgroundElements/BootLoader.unity";
         private static bool isSet;
 
         /// <summary>

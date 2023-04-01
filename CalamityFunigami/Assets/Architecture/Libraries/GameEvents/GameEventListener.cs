@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace Calamity.EventSystem
 {
@@ -8,18 +9,20 @@ namespace Calamity.EventSystem
     /// </summary>
     public class GameEventListener : MonoBehaviour
     {
-        [SerializeField] private GameEvent _gameEvent;
+        [FormerlySerializedAs("_gameEvent")]
+        public GameEvent _GameEvent;
         [SerializeField] private UnityEvent _callbackEvent;
 
 #if UNITY_EDITOR
         // Display notes field in the inspector.
         [Multiline, SerializeField]
-        private string DeveloperNotes = "";     
+        [FormerlySerializedAs("DeveloperNotes")]
+        private string _developerNotes = "";     
 #endif
 
         // Register and deregister events
-        private void Awake() => _gameEvent.RegisterListener(this);
-        private void OnDestroy() => _gameEvent.DeregisterListener(this);
+        private void Awake() => _GameEvent.RegisterListener(this);
+        private void OnDestroy() => _GameEvent.DeregisterListener(this);
 
         // Invoke event
         public void RaiseEvent() => _callbackEvent.Invoke();

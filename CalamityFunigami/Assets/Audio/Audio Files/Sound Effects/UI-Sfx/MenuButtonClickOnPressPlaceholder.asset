@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a01d9f02af349558e43634866f95e1, type: 3}
   m_Name: MenuButtonClickOnPressPlaceholder
   m_EditorClassIdentifier: 
-  Source: {fileID: 8300000, guid: 33ee5b769415d4acfb1e4a6af8414128, type: 3}
+  Source: {fileID: 0}
   ClampVolume:
     MinValue: 0.7114624
     MaxValue: 0.7961306

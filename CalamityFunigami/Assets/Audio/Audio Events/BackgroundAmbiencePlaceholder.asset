@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LimitOneSimultaneous: 1
   AudioFiles:
-  - {fileID: 11400000, guid: c630412dc8cba428f8dcddc556661152, type: 2}
+  - {fileID: 11400000, guid: f10220cbdf5d44298a61267f6c85366c, type: 2}
   Volume:
     MinValue: 0.8051948
     MaxValue: 1

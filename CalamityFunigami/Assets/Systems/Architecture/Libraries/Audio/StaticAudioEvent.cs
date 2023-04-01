@@ -19,7 +19,7 @@ namespace Calamity.Audio
 
         public override void Play(AudioSource source)
         {
-            if (AudioFiles.Length == 0) return;
+            if (AudioFiles == null || AudioFiles?.Length == 0 || source == null) return;
 
             source.clip = SelectClip();
             source.volume = SelectVolume();

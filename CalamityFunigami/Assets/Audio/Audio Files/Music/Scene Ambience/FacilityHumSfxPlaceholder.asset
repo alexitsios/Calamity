@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a01d9f02af349558e43634866f95e1, type: 3}
   m_Name: FacilityHumSfxPlaceholder
   m_EditorClassIdentifier: 
-  Source: {fileID: 8300000, guid: a9ae596cbfef046459c5a7cac8fce059, type: 3}
+  Source: {fileID: 8300000, guid: 7657e9d94bc634d22aa62d1cd36b60ec, type: 3}
   ClampVolume:
-    MinValue: 0.7556561
-    MaxValue: 1
+    MinValue: 0.030534351
+    MaxValue: 0.030534351

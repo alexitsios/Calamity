@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 171aac830ca1445acbf46ef3c627502b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _GameEvent: {fileID: 11400000, guid: 6b4b1ea870c5d48aeb0d70b3a6b9893f, type: 2}
-  _callbackEvent:
+  TargetGameEvent: {fileID: 11400000, guid: 6b4b1ea870c5d48aeb0d70b3a6b9893f, type: 2}
+  CallbackEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}

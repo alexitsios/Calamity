@@ -78,6 +78,19 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Calamity.SceneManagement.BootLoader, Assembly-CSharp
+        m_MethodName: LoadSceneAdditiveWithoutSplashScreen
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 393899ed6e246441e91e17a56f665af8, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Calamity.SceneManagement.ScenePicker,
+            Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Calamity.SceneManagement.BootLoader, Assembly-CSharp
         m_MethodName: LoadSceneAdditiveWithSplashScreen
         m_Mode: 2
         m_Arguments:

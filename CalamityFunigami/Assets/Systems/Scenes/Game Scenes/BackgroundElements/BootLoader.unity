@@ -210,6 +210,10 @@ PrefabInstance:
       propertyPath: CallbackEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1805037331}
+    - target: {fileID: 3932564224059878969, guid: 717c81c3e9a084422afbf2c922582520, type: 3}
+      propertyPath: CallbackEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1805037331}
     - target: {fileID: 3932564224059878970, guid: 717c81c3e9a084422afbf2c922582520, type: 3}
       propertyPath: CallbackEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -237,10 +241,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BootScript
       objectReference: {fileID: 0}
-    - target: {fileID: 6239184257558579778, guid: be68b10b5890244d49e9cb21dc8fdba6, type: 3}
-      propertyPath: _activeLoadedScenes
-      value: 
-      objectReference: {fileID: 11400000, guid: 5f0145ddd98a94ab69a320813c70e7ec, type: 2}
     - target: {fileID: 6239184257558579778, guid: be68b10b5890244d49e9cb21dc8fdba6, type: 3}
       propertyPath: _loadingProgressBar
       value: 

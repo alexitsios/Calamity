@@ -47,6 +47,7 @@ namespace Calamity.SceneManagement
 
         private void Boot()
         {
+            _activeLoadedScenes.Items.Clear();
             _bootEvent?.Invoke();
             LoadSceneCollectionAdditive(_bootScenes);
         }

@@ -21,6 +21,8 @@ public class SceneListMenu
         public static void LoadLaboratory() { SceneMenuListGenerator.OpenScene("Assets/Systems/Scenes/Game Scenes/Gameplay/Laboratory.unity"); }
         [MenuItem(" 🎬  Scenes/Open//Morgue", priority = MenuItemSortOrders.SceneOpenPriority)]
         public static void LoadMorgue() { SceneMenuListGenerator.OpenScene("Assets/Systems/Scenes/Game Scenes/Gameplay/Morgue.unity"); }
+        [MenuItem(" 🎬  Scenes/Open//UI/GameplayMenus", priority = MenuItemSortOrders.SceneOpenPriority)]
+        public static void LoadGameplayMenus() { SceneMenuListGenerator.OpenScene("Assets/Systems/Scenes/Game Scenes/UI/GameplayMenus.unity"); }
         [MenuItem(" 🎬  Scenes/Open//UI/MainMenu", priority = MenuItemSortOrders.SceneOpenPriority)]
         public static void LoadMainMenu() { SceneMenuListGenerator.OpenScene("Assets/Systems/Scenes/Game Scenes/UI/MainMenu.unity"); }
 #endif

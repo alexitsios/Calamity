@@ -6,24 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Game Scenes/Background Elements/BootLoader.unity
+    path: Assets/Systems/Scenes/Game Scenes/BackgroundElements/BootLoader.unity
     guid: 5a6dfb3d51af142c893384b5f211d349
   - enabled: 1
-    path: Assets/Scenes/Game Scenes/Background Elements/EventLogger.unity
+    path: Assets/Systems/Scenes/Game Scenes/BackgroundElements/EventLogger.unity
     guid: 178439d3509684f28b84cc17b2e07418
   - enabled: 1
-    path: Assets/Scenes/Game Scenes/Background Elements/Audio.unity
+    path: Assets/Systems/Scenes/Game Scenes/BackgroundElements/Audio.unity
     guid: 8884eeaf0673d4ee8bae149a460e73fe
   - enabled: 1
-    path: Assets/Scenes/Game Scenes/UI/MainMenu.unity
+    path: Assets/Systems/Scenes/Game Scenes/UI/MainMenu.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Game Scenes/Gameplay/Morgue.unity
+    path: Assets/Systems/Scenes/Game Scenes/UI/GameplayMenus.unity
+    guid: 2fbfe3c59d0294ad4b23cd0d1dbd9cb5
+  - enabled: 1
+    path: Assets/Systems/Scenes/Game Scenes/Gameplay/Morgue.unity
     guid: 6ada0abaf16d93c40b0fb5a065d3c400
   - enabled: 1
-    path: Assets/Scenes/Game Scenes/Gameplay/Laboratory.unity
+    path: Assets/Systems/Scenes/Game Scenes/Gameplay/Laboratory.unity
     guid: d161900c0e5de314aa62268130c63087
   - enabled: 1
-    path: Assets/Scenes/Game Scenes/Gameplay/Cemetery.unity
+    path: Assets/Systems/Scenes/Game Scenes/Gameplay/Cemetery.unity
     guid: 56ccc82b4f17d4429af03625909363f7
   m_configObjects: {}

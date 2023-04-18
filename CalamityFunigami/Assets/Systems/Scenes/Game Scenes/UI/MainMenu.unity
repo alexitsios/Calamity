@@ -291,6 +291,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainMenuCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2346261982192551681, guid: 320f2313085b34f7eb253dbb4e161089, type: 3}
+      propertyPath: m_CameraType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346261982192551681, guid: 320f2313085b34f7eb253dbb4e161089, type: 3}
+      propertyPath: m_RendererIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346261982192551685, guid: 320f2313085b34f7eb253dbb4e161089, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346261982192551687, guid: 320f2313085b34f7eb253dbb4e161089, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2346261982192551687, guid: 320f2313085b34f7eb253dbb4e161089, type: 3}
+      propertyPath: orthographic
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 320f2313085b34f7eb253dbb4e161089, type: 3}

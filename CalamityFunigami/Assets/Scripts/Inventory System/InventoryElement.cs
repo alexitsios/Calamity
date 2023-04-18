@@ -21,8 +21,8 @@ public class InventoryElement : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     private TMP_Text m_itemCount;
     public RectTransform Rect => m_rect;
 
-    public Item item { get; private set; }
-    public int count { get; private set; }
+    public Item item;
+    public int count;
 
     public int gridX;
     public int gridY;

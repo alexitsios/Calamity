@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 namespace Calamity.EventSystem
 {
@@ -10,13 +9,11 @@ namespace Calamity.EventSystem
     public class GameEventListener : MonoBehaviour
     {
         public GameEvent TargetGameEvent;
-        [FormerlySerializedAs("_callbackEvent")]
         public UnityEvent CallbackEvent;
 
 #if UNITY_EDITOR
         // Display notes field in the inspector.
         [TextArea, SerializeField]
-        [FormerlySerializedAs("DeveloperNotes")]
         private string _developerNotes = "";     
 #endif
 

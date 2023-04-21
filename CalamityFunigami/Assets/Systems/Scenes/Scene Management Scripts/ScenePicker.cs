@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Calamity.AssetOrganization;
 using Calamity.EventSystem;
@@ -7,7 +8,7 @@ namespace Calamity.SceneManagement
     /// <summary>
     /// An object to point to a scene file to be used in SceneCollections.
     /// </summary>
-    [CreateAssetMenu(menuName = AssetMenuSortOrders.SceneManagementPath + "Scene Picker", fileName = "ScenePicker", order = AssetMenuSortOrders.SceneManagementOrder + 3)]
+    [CreateAssetMenu(menuName = AssetMenuSortOrders.SceneManagementPath + "Scene Picker", fileName = "ScenePicker", order = AssetMenuSortOrders.SceneManagementOrder + 5)]
     public class ScenePicker : ScriptableObject
     {
         /// <summary>

@@ -15,6 +15,8 @@ public class SceneListMenu
         public static void LoadBootLoader() { SceneMenuListGenerator.OpenScene("Assets/Systems/Scenes/Game Scenes/BackgroundElements/BootLoader.unity"); }
         [MenuItem(" 🎬  Scenes/Open//BackgroundElements/EventLogger", priority = MenuItemSortOrders.SceneOpenPriority)]
         public static void LoadEventLogger() { SceneMenuListGenerator.OpenScene("Assets/Systems/Scenes/Game Scenes/BackgroundElements/EventLogger.unity"); }
+        [MenuItem(" 🎬  Scenes/Open//BackgroundElements/SceneLoadingManager", priority = MenuItemSortOrders.SceneOpenPriority)]
+        public static void LoadSceneLoadingManager() { SceneMenuListGenerator.OpenScene("Assets/Systems/Scenes/Game Scenes/BackgroundElements/SceneLoadingManager.unity"); }
         [MenuItem(" 🎬  Scenes/Open//Cemetery", priority = MenuItemSortOrders.SceneOpenPriority)]
         public static void LoadCemetery() { SceneMenuListGenerator.OpenScene("Assets/Systems/Scenes/Game Scenes/Gameplay/Cemetery.unity"); }
         [MenuItem(" 🎬  Scenes/Open//Laboratory", priority = MenuItemSortOrders.SceneOpenPriority)]

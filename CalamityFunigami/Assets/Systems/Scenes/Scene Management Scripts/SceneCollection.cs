@@ -7,7 +7,7 @@ namespace Calamity.SceneManagement
     /// <summary>
     /// Groups of ScenePickers.
     /// </summary>
-    [CreateAssetMenu(menuName = AssetMenuSortOrders.SceneManagementPath + "Scene Collection", fileName = "SceneCollection", order = AssetMenuSortOrders.SceneManagementOrder + 2)]
+    [CreateAssetMenu(menuName = AssetMenuSortOrders.SceneManagementPath + "Scene Collection", fileName = "SceneCollection", order = AssetMenuSortOrders.SceneManagementOrder + 4)]
     public class SceneCollection : ScriptableObject
     {
         [SerializeField] public List<ScenePicker> Scenes;

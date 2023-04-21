@@ -64,38 +64,13 @@ MonoBehaviour:
   CallbackEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Calamity.SceneManagement.BootLoader, Assembly-CSharp
-        m_MethodName: UnloadNonStaticScenes
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Calamity.SceneManagement.BootLoader, Assembly-CSharp
-        m_MethodName: LoadSceneAdditiveWithoutSplashScreen
+      - m_Target: {fileID: 11400000, guid: 9b778850deb0f4257b65a1f37835dd65, type: 2}
+        m_TargetAssemblyTypeName: Calamity.SceneManagement.LoadSceneController, Assembly-CSharp
+        m_MethodName: SceneChange
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 393899ed6e246441e91e17a56f665af8, type: 2}
-          m_ObjectArgumentAssemblyTypeName: Calamity.SceneManagement.ScenePicker,
-            Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Calamity.SceneManagement.BootLoader, Assembly-CSharp
-        m_MethodName: LoadSceneAdditiveWithSplashScreen
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: bce7e158e4fcb4f1ca66004abc60a672, type: 2}
-          m_ObjectArgumentAssemblyTypeName: Calamity.SceneManagement.ScenePicker,
+          m_ObjectArgument: {fileID: 11400000, guid: d8501dd5e2c8b48aebe96582b163f7c4, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Calamity.SceneManagement.SceneChange,
             Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -119,25 +94,13 @@ MonoBehaviour:
   CallbackEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Calamity.SceneManagement.BootLoader, Assembly-CSharp
-        m_MethodName: UnloadNonStaticScenes
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Calamity.SceneManagement.BootLoader, Assembly-CSharp
-        m_MethodName: LoadSceneAdditiveWithSplashScreen
+      - m_Target: {fileID: 11400000, guid: 9b778850deb0f4257b65a1f37835dd65, type: 2}
+        m_TargetAssemblyTypeName: Calamity.SceneManagement.LoadSceneController, Assembly-CSharp
+        m_MethodName: SceneChange
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 12696c858d427444986819f8125ac4ab, type: 2}
-          m_ObjectArgumentAssemblyTypeName: Calamity.SceneManagement.ScenePicker,
+          m_ObjectArgument: {fileID: 11400000, guid: a0b20158c34cf40339c620ff8896d4fb, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Calamity.SceneManagement.SceneChange,
             Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0

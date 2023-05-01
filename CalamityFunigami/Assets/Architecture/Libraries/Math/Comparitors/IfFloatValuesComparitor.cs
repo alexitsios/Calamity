@@ -16,8 +16,10 @@ namespace Calamity.Math
         [SerializeField] private UnityEvent _ifFalseCallback;
 
 #if UNITY_EDITOR
+#pragma warning disable 0414
         [SerializeField, TextArea]
         private string _developerNotes = "";
+#pragma warning restore 0414
 #endif
 
         public void RunComparison()

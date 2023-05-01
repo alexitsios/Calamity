@@ -1,3 +1,4 @@
+using Calamity.Primitives;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,9 +11,11 @@ public class PlayerMovement : MonoBehaviour
 	[Tooltip("Rotation speed when turning left/right")]
 	private float turnSpeed = 2f;
 
-	[SerializeField]
-	[Tooltip("Forward speed when walking")]
-	private float walkSpeed = 10f;
+	//[SerializeField]
+	//[Tooltip("Forward speed when walking")]
+	//private float walkSpeed = 10f;
+
+	[SerializeField] private FloatReference[] movementSpeeds;
 	#endregion
 
 	#region Private Variables
@@ -37,20 +40,29 @@ public class PlayerMovement : MonoBehaviour
 	{
 		var moveInput = playerInput.actions["Move"].ReadValue<Vector2>();
 
+		float speedState = 0f;
+		var speed = movementSpeeds[(int)SpeedStates.Walk];
+		if (playerInput.actions["Run"].IsPressed())
+		{
+			speed = movementSpeeds[(int)SpeedStates.Run];
+			speedState = 1f;
+        }
+
 		movement = moveInput.y;
 		turn = moveInput.x;
 
 		if(movement != 0f)
 		{
-			var moveRate = movement * walkSpeed * transform.forward;
+			speedState = 0.5f;
+			var moveRate = movement * speed * transform.forward;
 
 			characterController.Move(Time.fixedDeltaTime * moveRate);
 
-			SetAnimatorMoving(true);
+			//SetAnimatorMoving(true);
 		}
 		else
 		{
-            SetAnimatorMoving(false);
+            //SetAnimatorMoving(false);
         }
 
 		if(turn != 0f)
@@ -59,12 +71,29 @@ public class PlayerMovement : MonoBehaviour
 
 			transform.Rotate(Time.fixedDeltaTime * turnRate);
 		}
-	}
 
+        SetAnimatorParameters(speedState, moveInput.x, moveInput.y);
+    }
+
+	private void SetAnimatorParameters(float speedState, float horizontal, float vertical)
+	{
+        if (Animator == null)
+            Debug.LogError("Your player is missing an animator or an animator subscription script");
+		Animator.SetFloat("speed", speedState);
+		Animator.SetFloat("horizontal", horizontal);
+		Animator.SetFloat("vertical", vertical);
+
+    }
 	private void SetAnimatorMoving(bool moving)
 	{
 		if (Animator == null)
 			Debug.LogError("Your player is missing an animator or an animator subscription script");
 		Animator.SetBool("Moving", moving);
 	}
+}
+
+public enum SpeedStates
+{
+	Walk,
+	Run
 }

@@ -18,10 +18,12 @@ namespace Calamity.CommandSystem
         [SerializeField] private FeedbackCollection _feedbackCollection;
 
 #if UNITY_EDITOR
+#pragma warning disable 0414
         // Display notes field in the inspector.
         [Multiline, SerializeField, Space(10)]
         [FormerlySerializedAs("DeveloperNotes")]
         private string _developerNotes = "";
+#pragma warning restore 0414
 #endif
 
         private CommandLogger _commandLogger;

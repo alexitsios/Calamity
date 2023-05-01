@@ -15,8 +15,10 @@ namespace Calamity.Math
         [SerializeField] private FloatReference _returnIfFalse;
 
 #if UNITY_EDITOR
+#pragma warning disable 0414
         [SerializeField, TextArea]
         private string _developerNotes = "";
+#pragma warning restore 0414
 #endif
 
         public override float Value

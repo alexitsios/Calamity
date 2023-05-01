@@ -14,10 +14,12 @@ namespace Calamity.EventSystem
         [SerializeField] private UnityEvent _callbackEvent;
 
 #if UNITY_EDITOR
+#pragma warning disable 0414
         // Display notes field in the inspector.
         [Multiline, SerializeField]
         [FormerlySerializedAs("DeveloperNotes")]
-        private string _developerNotes = "";     
+        private string _developerNotes = "";
+#pragma warning restore 0414
 #endif
 
         // Register and deregister events

@@ -226,11 +226,12 @@ GameObject:
   - component: {fileID: 5654475597635946592}
   - component: {fileID: 5654475597635946607}
   - component: {fileID: 5654475597635946606}
-  - component: {fileID: 5654475597635946605}
   - component: {fileID: 5654475597635946604}
   - component: {fileID: 5654475597635946603}
   - component: {fileID: 732805101}
   - component: {fileID: 8868879350130413975}
+  - component: {fileID: 1752173165586672695}
+  - component: {fileID: 4057704318572762781}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -254,7 +255,7 @@ Transform:
   - {fileID: 5654475596774799790}
   - {fileID: 5654475596423355514}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5654475597635946607
 MonoBehaviour:
@@ -269,7 +270,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 1
-  walkSpeed: 5
+  movementSpeeds:
+  - UseConstant: 0
+    ConstantValue: 0
+    UseFormula: 0
+    Formula: {fileID: 0}
+    Variable: {fileID: 11400000, guid: 660b3d1903e2a6b4e9e999b94e52eb29, type: 2}
+  - UseConstant: 0
+    ConstantValue: 0
+    UseFormula: 0
+    Formula: {fileID: 0}
+    Variable: {fileID: 11400000, guid: 64e9fee214dd3044bba45c41f87f304b, type: 2}
 --- !u!143 &5654475597635946606
 CharacterController:
   m_ObjectHideFlags: 0
@@ -288,18 +299,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5654475597635946605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5654475597635946596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 945838d625058e44eae09da0486b26f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5654475597635946604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,7 +330,7 @@ MonoBehaviour:
     m_ActionName: Player/Move[/DualShock4GamepadHID/leftStick,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5654475597635946605}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
         m_MethodName: InteractWith
         m_Mode: 1
@@ -450,10 +449,85 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6adbd0fbcf769d34dbe7720df90cc4d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  display: {fileID: 0}
-  inventoryElements: []
-  testItems: []
-  testItemCountToAdd: 0
+--- !u!114 &1752173165586672695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5654475597635946596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee7114c768164ef4dac367309ac64e84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthReference:
+    UseConstant: 0
+    ConstantValue: 0
+    UseFormula: 0
+    Formula: {fileID: 0}
+    Variable: {fileID: 11400000, guid: d149b9f0bc7b17a49874788a569d5ede, type: 2}
+  playerDamagedEvent: {fileID: 11400000, guid: 33c657dde4ba61f478e1b63972dffcc3, type: 2}
+  playerHealedEvent: {fileID: 11400000, guid: 93d918de55de90348ba25f239a1c155b, type: 2}
+  playerDeathEvent: {fileID: 11400000, guid: 67184540792750642b557f59cc7a8981, type: 2}
+  playerHealthThresholdReferences:
+  - UseConstant: 0
+    ConstantValue: 0
+    UseFormula: 0
+    Formula: {fileID: 0}
+    Variable: {fileID: 11400000, guid: e4af72874fe4ecd488e0715ef2e5c5bc, type: 2}
+  - UseConstant: 0
+    ConstantValue: 0
+    UseFormula: 0
+    Formula: {fileID: 0}
+    Variable: {fileID: 11400000, guid: 0c6879db161b4f343ad3a0d7bac3a646, type: 2}
+  - UseConstant: 0
+    ConstantValue: 0
+    UseFormula: 0
+    Formula: {fileID: 0}
+    Variable: {fileID: 11400000, guid: 8977a8973eaf9524ead09c302d457d4d, type: 2}
+  - UseConstant: 0
+    ConstantValue: 0
+    UseFormula: 0
+    Formula: {fileID: 0}
+    Variable: {fileID: 11400000, guid: 06845fcc0aff65e41969796aae595b0e, type: 2}
+  playerHealthThresholdEvents:
+  - {fileID: 11400000, guid: 6678634ae2726d44a8d7aa17099bf19c, type: 2}
+  - {fileID: 11400000, guid: 30dbac9a837a71548bf1222307a0e1d1, type: 2}
+  - {fileID: 11400000, guid: db46c78b596ade648ad53cd0053a6888, type: 2}
+  - {fileID: 11400000, guid: b852ddd5aaa88a542a4364f45c28b6be, type: 2}
+--- !u!114 &4057704318572762781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5654475597635946596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 171aac830ca1445acbf46ef3c627502b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _GameEvent: {fileID: 11400000, guid: 80bf55d437bb6ae4995b246a603fb573, type: 2}
+  _callbackEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1752173165586672695}
+        m_TargetAssemblyTypeName: PlayerHealthObserver, Assembly-CSharp
+        m_MethodName: OnPlayerHealthChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _developerNotes: 'Listens to changes in player health and invokes
+
+    corresponding
+    damage/heal/death events'
 --- !u!1001 &5654475596423218818
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -18,8 +18,10 @@ namespace Calamity.Math
         }
 
 #if UNITY_EDITOR
+#pragma warning disable 0414
         [SerializeField, TextArea]
         private string _developerNotes = "";
+#pragma warning restore 0414
 #endif
 
         private int Result
